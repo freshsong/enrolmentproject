@@ -16,12 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 public class reScheduleCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String Integer = null;
-       
    
     public reScheduleCheck() {
         super();
     }
-
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -39,18 +37,18 @@ public class reScheduleCheck extends HttpServlet {
 		String title = request.getParameter("title");
 		String time = request.getParameter("time");
 		
-		
-		
-		try {
-			//강의 값 가져오기 위해 DB 연결
-			Connection conn = null;
-			DBConnect db = new DBConnect();
-			//쿼리문 실행
-			String sql = "INSERT INTO school (title, time) VALUES (?, ?)";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, title);
-            pstmt.setString(2, time);
-            pstmt.executeUpdate();
+		System.out.println(request.getParameter("val"));
+		String[] courses = request.getParameter("val").split(",");
+		String[] cours2 = new String[courses.length];
+ 		
+		for(int i = 0; i<courses.length;i++) {
+			if(courses[i].equals("웹디자인")) {
+				cours2[i] = courses[i];
+			}
+			System.out.println(courses[i]);
+			System.out.println(cours2[i]);
+		}
+	
 		//값 화면에 출력하기
 		out.println("<HTML>");
 		out.println("<HEAD><TITLE>수강신청 미리보기</TITLE></HEAD>");
@@ -69,7 +67,7 @@ public class reScheduleCheck extends HttpServlet {
 		out.println("<tbody class=\"text-center\">");
 		out.println("<tr>");
 		out.println("<th>1교시<br>09:00~10:00</th>");
-		out.println("<td class=\"mon1\">"+ title + time +"</td>");
+		out.println("<td class=\"mon1\">"+ courses[0] + "\n" + courses[1] +"</td>");
 		out.println("<td class=\"tue1\"></td>");
 		out.println("<td class=\"wed1\"></td>");
 		out.println("<td class=\"thu1\"></td>");
@@ -80,14 +78,6 @@ public class reScheduleCheck extends HttpServlet {
         out.println("</BODY>");
         out.println("</HTML>");
         out.close();
-        // 자원 해제
-        pstmt.close();
-        conn.close();
-    } catch (SQLException e) {
-        // 오류 처리
-        out.println("오류 발생: " + e.getMessage());
-    } finally {
-        out.close();
-    }
+      
 }
 }

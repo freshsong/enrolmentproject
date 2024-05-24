@@ -122,10 +122,16 @@ function interest() {
         <!-- 내가담은 수강신청 전체삭제 / 부분삭제 -->
          <div class="req_header">
        <button onclick="scheduleAddCart()" class="req_box1" ><p style="margin-top: 10px;">선택강의 담기</p></button>
-       <button onclick="schesubmitCheckedValues()" class="req_box1" ><p style="margin-top: 10px;">수강 시간표 미리보기</p></button>
+       <form action="schedulerOk.jsp" method="post">
+       <button onclick="schesubmitCheckedValues()" class="req_box1" ><p style="margin-top: 10px;">수강신청 미리보기</p></button>
+       </form>
        <form action="resche" method ="post"> 
-       	<input type="submit" class="req_box1" value="선택강의 신청"/>
-       	<input type="hidden" name="val" id="inpp" value="" />
+        <input type="submit" class="req_box1" value="수강신청미리보기"/>
+        <input type="hidden" name="val" id="inpp" value="" />
+       </form>
+       <form action="scheduleOk.jsp" method ="post"> 
+        <input type="submit" class="req_box1" value="선택강의 신청"/>
+        <input type="hidden" name="val" id="inpp" value="" />
        </form>
        <button type="button" class="req_box1" id="deleteAll1">선택 취소</button>
        <button onclick="scheduleClearCart()" class="req_box1"><p style="margin-top: 10px;">전체 삭제</p></button>
@@ -141,7 +147,7 @@ function interest() {
         <form action="scheduleOk.jsp" method="post">
             <div class="class">
                 <div class="web">
-                    <input type="checkbox" class="textcheck" id="mon1" value="웹디자인 월요일(09:00~10:00)" >
+                    <input type="checkbox" class="textcheck" id="mon1" value="웹디자인,월요일(09:00~10:00)" >
                     <div class="classson">
 	                    수강과목 | 웹디자인 월요일(09:00~10:00) <br>
 	                    김교수 | 학과 : 이젠컴퓨터학과 <br>
@@ -160,7 +166,7 @@ function interest() {
         <form action="scheduleOk.jsp" method="post">    
             <div class="class">
                 <div class="java">
-                    <input type="checkbox" class="textcheck" id="mon2" value="자바프로그램 월요일(11:00~12:00)">
+                    <input type="checkbox" class="textcheck" id="mon2" value="자바프로그램,월요일(11:00~12:00)">
                     <div class="classson">
 	                    수강과목 | 자바프로그램 월요일(11:00~12:00) <br>
 	                    박교수 | 이젠컴퓨터학과 <br>
@@ -179,7 +185,7 @@ function interest() {
         <form action="scheduleOk.jsp" method="post">         
             <div class="class">
                 <div class="DB">
-                    <input type="checkbox" class="textcheck" id="wed4" value="데이터베이스 수요일(14:00~15:00)">
+                    <input type="checkbox" class="textcheck" id="wed4" value="데이터베이스,수요일(14:00~15:00)">
                     <div class="classson">
 	                    수강과목 | 데이터베이스 수요일(14:00~15:00) <br>
 	                    이교수 | 이젠컴퓨터학과 <br>
@@ -195,10 +201,10 @@ function interest() {
            </div> <!--/class-->
         </form>   <!--/DBform-->
         
-        <form action="schedulerOktest.jsp" method="post">           
+        <form action="scheduleOk.jsp" method="post">           
             <div class="class">
                 <div class="final">
-                    <input type="checkbox" class="textcheck" id="tue1" value="영상편집 화요일(09:00~10:00)">
+                    <input type="checkbox" class="textcheck" id="tue1" value="영상편집,화요일(09:00~10:00)">
                     <div class="classson">
 	                    수강과목 | 영상편집 화요일(09:00~10:00)<br>
 	                    나교수 | 이젠컴퓨터학과 <br>
@@ -214,10 +220,10 @@ function interest() {
             </div><!--/class-->
         </form> 
         
-        <form action="schedulerOktest.jsp" method="post">           
+        <form action="scheduleOk.jsp" method="post">           
             <div class="class">
                 <div class="final">
-                    <input type="checkbox" class="textcheck" id="fri4" value="영상편집 금요일(12:00~13:00)">
+                    <input type="checkbox" class="textcheck" id="fri4" value="영상편집,금요일(12:00~13:00)">
                     <div class="classson">
                         수강과목 | 영상편집 금요일(12:00~13:00)<br>
                         나교수 | 이젠컴퓨터학과 <br>

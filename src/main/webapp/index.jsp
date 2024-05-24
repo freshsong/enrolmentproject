@@ -8,11 +8,11 @@
 <jsp:include page="inc/aside.jsp" flush="true" />
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
 
-<%	
-	String val = request.getParameter("val");
-	Connection conn = db.getConnection();
-	
-	db.closeConnection();
+<%  
+    String val = request.getParameter("val");
+    Connection conn = db.getConnection();
+    
+    db.closeConnection();
 %>
 
 
@@ -41,7 +41,7 @@
                               <td>수강취소기간</td>
                               <td>2024-03-09(토) ~  2024-04-01(월)</td>
                               <td>00 : 00 ~ 18 : 00</td>
-                              <td>	마감:~4. 22.(월)(메뉴: mySNU-학사정보-수업-정규학기수강취소)</td>
+                              <td>  마감:~4. 22.(월)(메뉴: mySNU-학사정보-수업-정규학기수강취소)</td>
                            </tr>
                         </tbody>
                      </table>

@@ -560,3 +560,5 @@ $(document).ready(function(){  // 제이쿼리문 시작
        $("td:contains('영상편집')").css("background-color", "#f4eefd");
     });
 
+
+
