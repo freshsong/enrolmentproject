@@ -73,9 +73,9 @@
       <button onclick="addToCart()" class="popbox"><p>관심강좌 담기</p></button>
       <button onclick="clearCart()" class="popbox"><p>전체 삭제</p></button>
       <div class="popbox" id="box-c1"><p>관심등록</p></div>
-      
-      <div class="popbody" id="cart">
       <h4>My Cart</h4>
+      <div class="popbody" id="cart">
+      
       
      
     </div> <!--/popbody-->

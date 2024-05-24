@@ -21,7 +21,7 @@ function scheduleAddCart() {
 //수강신청 선택된 항목을 추가
  cartItems = cartItems.concat(checkedItems);
 //수강신청 추가된 항목을 출력
- let cartList = document.getElementById('cart');
+ let cartList = document.getElementById('cart1');
  cartList.innerHTML = ''; // 기존 내용을 초기화
  cartItems.forEach(function(item) {
      let li = document.createElement('li');
@@ -38,14 +38,14 @@ function scheduleAddCart() {
 
 /* 수강신청 전체 비우기 */
 function scheduleClearCart() {
-let cartList = document.getElementById('cart');
+let cartList = document.getElementById('cart1');
 cartList.innerHTML = ''; 
 cartItems=[];
 }
 
 $(document).ready(function(){  
 /* 선택한 카트요소 비우기 */
-$('#cart').on('click','button',function(){
+$('#cart1').on('click','button',function(){
 $(this).parent().remove();
 });
 /* check box 선택삭제 */
@@ -114,7 +114,7 @@ $(document).ready(function() {
       <p class="t_score" id="checkedCount1">현재 선택 강의 : 0</p> 
     </div>
          <div class="popup1">
-      <div class="popbody1" id="cart"></div> <!--/popbody-->
+      <div class="popbody1" id="cart1"></div> <!--/popbody-->
         </div> <!--/popup-->
         <!-- 내가담은 수강신청 전체삭제 / 부분삭제 -->
     </div>    <!-- /infohead -->  

@@ -609,7 +609,7 @@ td:not(:last-child){
     list-style-type: none;
 }
 .class{
-	border-radius: 10px;
+   border-radius: 10px;
     border: 1px solid #ddd;
     margin : 11px;
     display: flex;
@@ -631,23 +631,23 @@ td:not(:last-child){
     margin-top: 35px;
 }
 .pass, .cancel{
-	padding: 10px;
-	margin: 10px;
-	background: #fff;
-	border-radius: 10px;
+   padding: 10px;
+   margin: 10px;
+   background: #fff;
+   border-radius: 10px;
 }
 .pass:hover{
-	background: #277cf3;
-	color: #fff;
+   background: #277cf3;
+   color: #fff;
 }
 .cancel:hover{
-	background: #277cf3;
-	color: #fff;
+   background: #277cf3;
+   color: #fff;
 }
 
 .final > .textcheck{
-	float: left;
-	margin-top: 30px;
+   float: left;
+   margin-top: 30px;
 }
 .java > .textcheck{
     float: left;
@@ -662,12 +662,13 @@ td:not(:last-child){
     margin-top: 30px;
 }
 .classson{
-	float: left;
+   float: left;
 }
 .req_box1:hover{
-	background: #277cf3;
+   background: #277cf3;
     color: #fff;
 }
+
 
 
 /*내정보 세부메뉴(관심등록)*/
@@ -736,9 +737,9 @@ td:not(:last-child){
     margin-top:5px;
     list-style-type: none;
     border:1px solid #c7d1de;
-    border-radius:5px
-
+    border-radius:5px;
 }  
+
 
 
 /*************popup*************/
@@ -776,10 +777,11 @@ td:not(:last-child){
     position:absolute;
     background-color: #fff;
     margin:0;
-    top:-15px;
-    left:52px;
+    top:295px;
+    left:57px;
+    z-index:9999;
 }
-.popbody{
+#cart{
    position:relative;
    padding-top:10px;
    padding-bottom:10px;
@@ -787,10 +789,24 @@ td:not(:last-child){
     top:100px;
     z-index:1;
     width:190px;
-    height:200px;
+    height:230px;
     background: #fff;
-    border-radius: 10px;
     border:1px solid #c7d1de;    
+   border-radius:10px;
+}
+.popbody > li{
+
+   padding-left:10px;
+   margin-top:20px;
+   text-align:left;
+}
+.popbody > li > button{
+   margin-left:5px;
+   border:none;
+   background:#fff;
+   width:15px;
+   height:15px;
+   text-align: right;
 }
 .popbody>label{
     margin-bottom:0;

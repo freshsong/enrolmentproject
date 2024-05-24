@@ -116,7 +116,7 @@ $(document).ready(function() {
       <p class="t_score" id="checkedCount1">현재 선택 강의 : 0</p> 
     </div>
          <div class="popup1">
-      <div class="popbody1" id="cart"></div> <!--/popbody-->
+      <div class="popbody1" id="cart1"></div> <!--/popbody-->
         </div> <!--/popup-->
         <!-- 내가담은 수강신청 전체삭제 / 부분삭제 -->
     </div>    <!-- /infohead -->  
