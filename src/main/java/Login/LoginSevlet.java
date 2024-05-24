@@ -58,6 +58,7 @@ public class LoginSevlet extends HttpServlet {
 					
 					session.setAttribute("name", name);
 					session.setAttribute("rolee", role+"1");
+					session.setAttribute("role", role);
 					resp.sendRedirect("index.jsp");
 					System.out.println("로그인 완료");
 			
@@ -82,6 +83,7 @@ public class LoginSevlet extends HttpServlet {
 					session.setAttribute("name", arr[0]);
 					session.setAttribute("id", arr[1]);
 					session.setAttribute("rolee", role+"1");
+					session.setAttribute("role", role);
 					resp.sendRedirect("index.jsp");
 					System.out.println("로그인 완료");
 			

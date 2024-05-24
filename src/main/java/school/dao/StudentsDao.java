@@ -68,19 +68,21 @@ public class StudentsDao {
 		}
 		
 		//회원정보 검증
-		public SDto serchDB(String name) {
-			String sql = "select * from student where name = ?";
+		public SDto serchDB(String name, String Snum) {
+			String sql = "select * from student where name = ? and stNum = ?";
 			SDto dto = new SDto();
 			
 			try {
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, name);
+				pstmt.setString(2, Snum);
 				rs = pstmt.executeQuery();
 				rs.next();
 				
 				dto.setName(rs.getString("name"));
 				dto.setStNum(rs.getInt("stNum"));
 				dto.setBirth(rs.getInt("birth"));
+				dto.setEmail(rs.getString("email"));
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

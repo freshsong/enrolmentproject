@@ -45,11 +45,6 @@
     
    
 %>
-<script>
-  function changeBox(){
-     
-  }
-</script>
 
 <button class="btn btn-outline-dark sc_2button" onclick="window.location.href='interest.jsp';">뒤로가기</button>
 

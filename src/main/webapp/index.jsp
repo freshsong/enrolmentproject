@@ -3,15 +3,50 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="school.dto.*" %>
+<%@ page import="school.dao.*" %>
+<%@ page import="java.text.*" %>
 
 <jsp:include page="inc/header.jsp" flush="true" />
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
 
-<%  
-    String val = request.getParameter("val");
-    Connection conn = db.getConnection();
-    
-    db.closeConnection();
+<%	
+	String val = request.getParameter("val");
+	Connection conn = db.getConnection();
+	ServeyDao dao = new ServeyDao(conn);
+	
+	String rolee = (String) session.getAttribute("rolee");
+	
+	String Snum = (String) session.getAttribute("id");
+	
+	System.out.println(Snum);
+	System.out.println(rolee);
+	
+	boolean res = false;
+	
+	if(Snum != null){
+		System.out.println("2");
+		int SSnum = Integer.parseInt(Snum);
+		System.out.println(SSnum);
+		res = dao.servey_search(SSnum);
+		System.out.println(res);
+	}
+	else if(Snum == null){
+		System.out.println("3");
+		
+		if(rolee == null){
+			System.out.println("4");
+		}
+		
+		else if(rolee.equals("pr1")){
+			System.out.println("1");
+			res = true;
+		}
+	}
+	
+	System.out.println(res);
+	
+	db.closeConnection();
+	
 %>
 
 
@@ -40,7 +75,7 @@
                               <td>수강취소기간</td>
                               <td>2024-03-09(토) ~  2024-04-01(월)</td>
                               <td>00 : 00 ~ 18 : 00</td>
-                              <td>  마감:~4. 22.(월)(메뉴: mySNU-학사정보-수업-정규학기수강취소)</td>
+                              <td>	마감:~4. 22.(월)(메뉴: mySNU-학사정보-수업-정규학기수강취소)</td>
                            </tr>
                         </tbody>
                      </table>
@@ -78,9 +113,43 @@
                   
                   <script>
                     window.onload = function(){
-                        var popup = window.open('interest_Popup.jsp','_blank','width=370,height=380, top=200, left=30')
-                        var servey = window.open('servey.jsp','_blank','width=800,height=600,top=200, left=400, scrollbars=yes')
+                    	var param = window.location.href;
+                    	console.log(param.search("role"));
+                    	
+                    	
+                    	if(param.search("role") == -1){
+                    	                  	
+                    		if(localStorage.getItem("popYN") != "N"){	
+                    			var popup = window.open('interest_Popup.jsp','_blank','width=370,height=380, top=200, left=30');
+                    			if(<%=!res %>){
+                    				var servey = window.open('servey.jsp','_blank','width=800,height=600,top=200, left=400, scrollbars=yes');
+                    			}
+                    		}
+                    		else{
+                    			if(<%=!res %>){  
+                    				var servey = window.open('servey.jsp','_blank','width=800,height=600,top=200, left=400, scrollbars=yes');
+                        			}
+                    		}
+                    	}
                     };
+                    
+                    console.log(localStorage.getItem("popYN"));
+                    
+                    var date = new Date();
+                    var msTime = localStorage.getItem("time");
+					var date2 = new Date(parseInt(msTime)); //localStorage 종료 시간
+					
+					
+                    console.log(msTime);
+                    console.log(date);
+                    console.log(date2);
+                    console.log(date.getTime());
+                    
+                    if(date.getTime() > localStorage.getItem("time")){
+                    	window.localStorage.clear();
+                    }
+                    
+                    
                   </script>
                   
                   

@@ -2,8 +2,10 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-    String id = request.getParameter("id");
-    String pass = request.getParameter("pass");
+	String id = request.getParameter("id");
+	String pass = request.getParameter("pass");
+	
+	
 %>
 <html>
 <head>
@@ -11,9 +13,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <script>
-    alert("로그인에 실패했습니다.");
-    location.href="index.jsp";
-    </script>
+	<script>
+	alert("로그인에 실패했습니다.");
+	location.href="index.jsp";
+	</script>
 </body>
 </html>

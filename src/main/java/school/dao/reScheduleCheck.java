@@ -35,11 +35,12 @@ public class reScheduleCheck extends HttpServlet {
       // 각과목값 요일에 넣기위해 value값 받아오기
       String value = request.getParameter("val");
       // header, aside 이 서블릿으로 가져오기위해 각각 지정된 변수 위로 옮기고 해당칸은 지움(중복값입력으로 에러떠서)      
-      String role = request.getParameter("role");
+      String role = (String) session.getAttribute("role");
       String name = (String) session.getAttribute("name");
       String rolee = (String) session.getAttribute("rolee");
       System.out.println(name+", "+rolee);
-      System.out.println(role);      
+      System.out.println(role);
+     
       
       /* split으로 잘라서 배열에담아 돌리기 -> 안하기로함
       String[] courses = request.getParameter("val").split(" ");
@@ -67,11 +68,10 @@ public class reScheduleCheck extends HttpServlet {
       String mon3 = "자바프로그램 창의관303호";
       String wed3 = "자바프로그램 창의관303호";
       String fri7 = "자바프로그램 창의관303호";      
-      String tue5 = "데이터베이스 선호과101호";
+      String tue5 = "데이터베이스 선호관101호";
       String wed4 = "데이터베이스 선호관101호";      
       String tue1 = "영상편집 창의관401호";
       String fri4 = "영상편집 창의관202호";
-      
       
       //헤더
       out.println("\r\n"
@@ -83,10 +83,13 @@ public class reScheduleCheck extends HttpServlet {
             + "\r\n"
             + "<link rel=\"stylesheet\" href=\"css/style.css\">\r\n"
             + "<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css\" integrity=\"sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" />\r\n"
-            + "\r\n"
+            + "<link rel=\"stylesheet\" href=\"js/jquery-ui-1.13.2/jquery-ui.css\">\r\n" 
             + "<script src=\"js/jquery.min.js\"></script>\r\n"
             + "<script src=\"js/popper.min.js\"></script>\r\n"
             + "<script src=\"js/bootstrap.min.js\"></script>\r\n"
+            + "<script src=\"js/jquery-ui-1.13.2/jquery-ui.min.js\"></script>\r\n"
+            + "<script src=\"js/jquery-ui-1.13.2/jquery-ui.js\"></script>\r\n"
+            + "<script src=\"js/datepicker-ko.js\"></script>\r\n"
             + "<script src=\"js/script.js\"></script>");
       
       out.println("\r\n"
@@ -106,12 +109,12 @@ public class reScheduleCheck extends HttpServlet {
          if(role == null){
         out.println("<li><a href=\"renamejoin.jsp\">내정보 수정</a></li>");
          }
-           else if(role.equals("st1")){
+           else if(rolee.equals("st1")){
         out.println("<li><a href=\"renamejoin.jsp\">내정보 수정</a></li>\r\n"
               + "                              <li><a href=\"schedule.jsp\">시간표</a></li>\r\n"
               + "                              <li><a href=\"interest.jsp\">관심등록</a></li>");
            }
-           else if(role.equals("pr1")){
+           else if(rolee.equals("pr1")){
         out.println(" <li><a href=\"renamejoin.jsp\">내정보 수정</a></li>\r\n"
               + "                              <li><a href=\"attendance.jsp\">출석관리</a></li>");   
            }
@@ -146,14 +149,11 @@ public class reScheduleCheck extends HttpServlet {
             + "\r\n"
             + "          </div>\r\n"
             + "          </div>\r\n"
-            + "        </div>   \r\n"
-            + "<div class=\"container\">\r\n"
-            + "               <section id=\"section\" class=\"menuSection\">\r\n"
-            + "               \r\n"
-            + "               ");
-        
-     
+            + "        </div>   \r\n");
+            out.println("          <div class=\"container\">");
       
+      out.println("<section id=\"section\" class=\"menuSection\">");
+        
       //시간표 위 확인박스 (내용 다르게)
      out.println("<div class=\"notice\">\r\n"
            + "    <div class=\"left\">수강신청 미리보기 화면입니다.<br>\r\n"
@@ -161,7 +161,6 @@ public class reScheduleCheck extends HttpServlet {
            + "    <div class=\"right\"> - 마감시간 이후에는 변경이 불가하며, 인원충족 시 전산확정 됩니다.<br>\r\n"
            + "                       - 장바구니 담기 기간 이후의 변경내역은 장바구니에 적용되지 않습니다.</div>\r\n"
            + "</div> <!--/notice--> ");
-        
         
       //스케쥴러 보여지는 메인화면
       out.println("<!DOCTYPE html>\r\n"
@@ -296,10 +295,12 @@ public class reScheduleCheck extends HttpServlet {
       out.println("</tr>");
       out.println("</tbody>");
       out.println("</table>");
-      
-      //aside
-      out.println("</section>\r\n"
-            + "<div class=\"aside\">");
+      out.println("</BODY>");
+      out.println("</HTML>");
+      out.println("  \r\n"
+              + "                   </section>\r\n");
+    //aside
+      out.println("\r\n"+ "<div class=\"aside\">");
        if(rolee == null){
              if(role == null){
         out.println("div class=\"login_box\">\r\n"
@@ -384,10 +385,10 @@ public class reScheduleCheck extends HttpServlet {
               + "                     <p><a href=\"#\"><span>Q</span> 재수강 및 성적평가방법 변경 FAQ</a></p>\r\n"
               + "                 </div>\r\n"
               + "               </div>\r\n"
-              + "               <!-- section -->");
-      
-        out.println(
-               "          </div>\r\n"
+              + "               <!-- section -->\r\n"
+              + "\r\n"
+
+              + "          </div>\r\n"
               + "          <div class=\"footer\">\r\n"
               + "            <div class=\"footer_text\">\r\n"
               + "               <p>개인정보처리방침</p>\r\n"

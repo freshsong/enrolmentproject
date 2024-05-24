@@ -235,7 +235,7 @@ $(document).ready(function(){  // 제이쿼리문 시작
   $('#cart').on('click','button',function(){
   $(this).parent().remove();
   
-     
+  	
   });
   
   /**check box 선택삭제 */
@@ -253,7 +253,6 @@ $(document).ready(function(){  // 제이쿼리문 시작
 
 });
 /** 출석부 **/
-
     $(function(){
         $(".nav > ul > li").mouseover(function(){
             $(this).find(".submenu").stop().slideDown();
@@ -262,20 +261,22 @@ $(document).ready(function(){  // 제이쿼리문 시작
             $(this).find(".submenu").stop().slideUp();
         });
         // 탭 메뉴 작업
-        let tabBtn = $(".tab-btn > ul > li"); //버튼 설정
+        let tabBtn = $(".tab-btn ul li"); //버튼 설정
         let tabCont = $(".tab-cont > div");   //콘텐츠 설정
         tabCont.hide().eq(0).show();          //첫번째 콘텐츠만 보이게 설정
 
         tabBtn.click(function(){
             const index = $(this).index();    //클릭한 번호를 저장
+            console.log(index);
             //alert(index);
 
             $(this).addClass("active").siblings().removeClass("active");    
             //내가 클릭한 버튼의 클래스를 추가하고 나머지 버튼은 삭제
             tabCont.eq(index).show().siblings().hide();
-            //내가 클릭한 버튼의 콘텐츠는 보여주고 나머지는 숨기기
+            //내가 클릭한 버튼의 콘텐츠는 보여주고 나머지는 숨기기 
         });
     });
+
     
     
     
@@ -523,12 +524,6 @@ $(document).ready(function(){  // 제이쿼리문 시작
 
 /** 출석부 **/
 
-/* 관심등록 윈도우팝업창 오픈 */
-    
-    function servey_open(){
-     window.open('servey.jsp', 'popup', 'width=800px,height=600px, top=200, left=400, scrollbars = yes');
-    }
-
     $(function(){
         $(".nav > ul > li").mouseover(function(){
             $(this).find(".submenu").stop().slideDown();
@@ -544,7 +539,7 @@ $(document).ready(function(){  // 제이쿼리문 시작
         tabBtn.click(function(){
             const index = $(this).index();    //클릭한 번호를 저장
             //alert(index);
-
+			
             $(this).addClass("active").siblings().removeClass("active");    
             //내가 클릭한 버튼의 클래스를 추가하고 나머지 버튼은 삭제
             tabCont.eq(index).show().siblings().hide();
@@ -574,3 +569,17 @@ $(document).ready(function(){  // 제이쿼리문 시작
        $("td:contains('데이터베이스')").css("background-color", "#edf7e9");
        $("td:contains('영상편집')").css("background-color", "#f4eefd");
     });
+
+	/** 날짜 선택 **/    
+    $(function(){
+		$("#testpicker").datepicker({
+			dateFormat: 'yy-mm-dd',
+			onSelect: function(dateString){
+				$("#dateform").submit();
+				console.log(dateString);
+				
+			}
+		});
+		
+	})
+

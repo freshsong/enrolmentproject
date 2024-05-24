@@ -15,6 +15,7 @@ public class ADto {
 	private int late;
 	private int ets;
 	private Timestamp time;
+	private String status;
 	
 	public int getStNum() {
 		return stNum;
@@ -81,6 +82,12 @@ public class ADto {
 	}
 	public void setTime(Timestamp time) {
 		this.time = time;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

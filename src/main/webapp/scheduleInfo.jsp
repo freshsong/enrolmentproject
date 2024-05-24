@@ -9,7 +9,7 @@
     <div class="right">- 마감시간 이후에는 변경이 불가하며, 인원충족 시 전산확정 됩니다.<br>
                        - 장바구니 담기 기간 이후의 변경내역은 장바구니에 적용되지 않습니다.</div>
   </div>
-    <div class="infobox">
+	<div class="infobox">
                      <div class="infohead">
                          <h3>수강안내</h3>
                      </div>

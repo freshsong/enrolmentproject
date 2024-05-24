@@ -18,8 +18,6 @@ public class DBConnect {
 	      DataSource ds = (DataSource) initContext.lookup("java:/comp/env/jdbc/school");
 	      //JNDI에서 이름을 찾아옴. "java:/comp/env/" 이름찾는 데 사용되는 접두어
 	      conn = ds.getConnection();
-	      
-	      System.out.println(conn);
 	      System.out.println("db접속 성공");
 	     }
 	     return conn;

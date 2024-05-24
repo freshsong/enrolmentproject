@@ -3,9 +3,9 @@
 <jsp:include page="inc/header.jsp" flush="true" />
 
 <div class="tablebox">
-    <div class="textbox formbox">
-        <h3>학사안내</h3>
-    </div>
+	<div class="textbox formbox">
+		<h3>학사안내</h3>
+	</div>
 </div> 
 <div class="infobox">
     <div class="infohead mymenu affme2">
@@ -15,9 +15,9 @@
 </div>
     
 <div class="infobox">
-    <div class="infohead mymenu affme2 affme3">
+	<div class="infohead mymenu affme2 affme3">
     <h5 class="subti">학적변동</h5>
-    <p>휴학, 복학, 퇴학, 복적재입학, 경고제적 유급 등 학적변동 내용을 안내합니다.</p>
+	<p>휴학, 복학, 퇴학, 복적재입학, 경고제적 유급 등 학적변동 내용을 안내합니다.</p>
     </div>
     <div class="infohead mymenu affme2 affme3">
     <h5 class="subti">전과</h5>
@@ -38,7 +38,7 @@
     </div>
     <div class="infohead mymenu affme2 affme3">
     <h5 class="subti">학업취득(수료)</h5>
-    <p>학사과정 졸업학점, 대학원과정 졸업학점, 학사과정 졸업, 대학원과정 수료, 예과과정 수료, 대학원논문심사 등 학위취득(수료) 내용을 안내합니다.</p>
+	<p>학사과정 졸업학점, 대학원과정 졸업학점, 학사과정 졸업, 대학원과정 수료, 예과과정 수료, 대학원논문심사 등 학위취득(수료) 내용을 안내합니다.</p>
     </div>
     
 </div>

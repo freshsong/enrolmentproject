@@ -33,11 +33,11 @@
   
   
   if(!checkedValues.equals("")){
-    if(!res){
-        int rs = dao.interest_insertDB(stNum, checkedValues);
-    }else{
-        int rs = dao.interest_updateDB(stNum, checkedValues);  
-    }
+  	if(!res){
+  		int rs = dao.interest_insertDB(stNum, checkedValues);
+  	}else{
+		int rs = dao.interest_updateDB(stNum, checkedValues);  
+  	}
   }
   db.closeConnection();
  %>
@@ -46,13 +46,13 @@
     
 </body>
 <script>
-    if(<%=checkedValues.equals("") %>){
-        alert("관심등록 할 내용이 없습니다.");
-        location.href="interest.jsp";
-    }
-    else{
-        alert("관심등록이 완료되었습니다.");
-        location.href="interest.jsp";
-    }
+	if(<%=checkedValues.equals("") %>){
+		alert("관심등록 할 내용이 없습니다.");
+		location.href="interest.jsp";
+	}
+	else{
+		alert("관심등록이 완료되었습니다.");
+ 		location.href="interest.jsp";
+	}
 </script>
 </html>

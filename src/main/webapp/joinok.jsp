@@ -16,7 +16,7 @@
    int rs = dao.insertDB(sDto);
    
    
-    db.closeConnection();
+	db.closeConnection();
 
      
    %>

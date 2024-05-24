@@ -129,4 +129,25 @@ public class schoolDao {
     	return dtos;
     }
 	
+    public PDto searchDB(String name) {
+		String sql = "select * from professor where name = ?";
+		PDto dto = new PDto();
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			res = pstmt.executeQuery();
+			res.next();
+			
+			dto.setName(res.getString("name"));
+			dto.setUserid(res.getString("userid"));
+			dto.setEmail(res.getString("email"));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return dto;
+	}
+	
 }

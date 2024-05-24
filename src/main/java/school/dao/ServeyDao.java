@@ -57,6 +57,8 @@ public class ServeyDao {
     			pstmt.setInt(1, stNum);
     			res = pstmt.executeQuery();
     			
+    			System.out.println(pstmt);
+    			
     			if(res.next()) {
     				result = true;
     			}

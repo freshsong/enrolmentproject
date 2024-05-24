@@ -4,11 +4,11 @@
 
     
  <div class="tablebox">
-    <div class="textbox formbox">
-        <h3>오시는길</h3>
-    </div>
+	<div class="textbox formbox">
+		<h3>오시는길</h3>
+	</div>
 </div>
-    <div class="infobox" id="map">
+	<div class="infobox" id="map">
     
     </div>  
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=22cb58696de48cf5c8ef72c6b984f1df"></script>
@@ -48,7 +48,7 @@ function panTo() {
 }
 </script>
 <div id="ltmap" onclick="panTo()">
-    <i class="fa-solid fa-location-crosshairs"></i>
+	<i class="fa-solid fa-location-crosshairs"></i>
 </div>   
 <div class="infobox mapdd">
     <div class="infohead mymenu" id="mapdiv">

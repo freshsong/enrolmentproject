@@ -21,22 +21,23 @@
    String ty = request.getParameter("ty");
    
    int idd = Integer.parseInt(id);
-   
+   int rs = dao.updateDB(scid, idd);
    System.out.println(scid+", "+id);
    
   
    if(ty.equals("신청하기")){
-       
-   int rs = dao.updateDB(scid, idd);
-   int rss = daoo.insertDB(scid, idd);
-   
-   }
+	   
+   		
+   		if(rs>0){
+   			int rss = daoo.insertDB(scid, idd);
+   			}
+   	}
    else{
-       int rs = dao.deleteScDB(scid, idd);
-       int rss = daoo.deleteScDB(idd);
+	   rs = dao.deleteScDB(scid, idd);
+	   int rss = daoo.deleteScDB(idd, scid);
    }
-    db.closeConnection();
-    
+	db.closeConnection();
+	
      
    %>
    
@@ -45,23 +46,34 @@
 <head>
 
 <%
-    if(ty.equals("신청하기")){
+	if(ty.equals("신청하기")){
+		if(rs == 0){
+			%>
+			<script>
+ 				alert("이미 신청한 과목입니다.");
+ 				location.href="./scheduler.jsp";
+			</script>
+			
+			<%
+		}
+		else{
 %>
 
 <script>
  alert("수강신청이 완료되었습니다.");
  location.href="./scheduler.jsp";
 </script>
-<%      
-    }
-    else{
+<%			
+		}
+	}
+	else{
 %>
 <script>
-    alert("수강신청이 취소되었습니다.");
-    location.href="./scheduler.jsp";
+	alert("수강신청이 취소되었습니다.");
+	location.href="./scheduler.jsp";
 </script>
 <%
-    }
+	}
 %>
 
 <meta charset="UTF-8">

@@ -113,7 +113,7 @@
       <td><input type="radio" name="servey_box4" value="1"/></td>
       </tr>
     </table>
-    <button type="button"  class="btn btn-outline-dark">설문닫기</button>
+    <button type="button"  class="btn btn-outline-dark" onclick="window.close()">설문닫기</button>
     <input type="submit" class="btn btn-outline-dark" name="survey_submit" value="설문제출"/>
     </form>
 </div>

@@ -57,6 +57,7 @@ public class ScheduleDao {
       //수강신청 완료
       public int updateDB(int scid, int id) {
          int rs = 0;
+         int num = 0;
          
    
          System.out.println(scid+", "+id);
@@ -86,6 +87,8 @@ public class ScheduleDao {
                     		 pstmt.setInt(2, id);
                     		 System.out.println(sql2);
                     		 int res = pstmt.executeUpdate();
+                    		 
+                    		 num = 1;
                     		 System.out.println("2");
                     		 break;
                      	}
@@ -100,7 +103,7 @@ public class ScheduleDao {
          e.printStackTrace();
       }
 
-         return rs;
+         return num;
       }
       
       //수강신청 목록 가져오기
@@ -140,14 +143,6 @@ public class ScheduleDao {
          }
       
       //수강신청 담기
-         
-      /* 제욱씨 파트
-       * schedule 테이블의 scid를 student 테이블의 lectureNum(1,2,3,4)에 저장
-       * 관심등록한 부분을 확인할 때는 student 테이블의 lectureNum(1,2,3,4)에 저장된 값으로
-       * schedule 테이블 전체를 선택하는데 이때 검색에 이용되는 건 scid
-       * 검색해서 나온 정보를 list에 저장, 관심등록 보여주기는 list를 출력
-       * 
-       * */
       public int insertDB(String scid, String week, String time) {
           int mid = Integer.parseInt(scid);
           int result = 0;
