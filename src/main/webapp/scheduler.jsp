@@ -104,13 +104,13 @@ $(document).ready(function() {
         <h3>수강신청</h3>
         <!-- 내가담은 수강신청 전체삭제 / 부분삭제 -->
          <div class="req_header">
-       <button type="button" class="req_box1" id="deleteAll1">선택삭제</button>
        <button onclick="scheduleAddCart()" class="req_box1" ><p style="margin-top: 10px;">선택강의 담기</p></button>
-       <button onclick="scheduleClearCart()" class="req_box1"><p style="margin-top: 10px;">전체 삭제</p></button>
        <form action="scheduleOk2.jsp" method ="post">
-       	<input type="submit" value="전송"/>
+       	<input type="submit" class="req_box1" value="선택강의 신청"/>
        	<input type="hidden" name="val" id="inpp" value="" />
        </form>
+       <button type="button" class="req_box1" id="deleteAll1">선택 취소</button>
+       <button onclick="scheduleClearCart()" class="req_box1"><p style="margin-top: 10px;">전체 삭제</p></button>
       <p class="t_score" id="checkedCount1">현재 선택 강의 : 0</p> 
     </div>
          <div class="popup1">
@@ -124,9 +124,11 @@ $(document).ready(function() {
             <div class="class">
                 <div class="web">
                     <input type="checkbox" class="textcheck" id="mon1" value="웹디자인 월요일(09:00~10:00)" >
-                    <br>웹디자인 월(09:00~10:00) <br>
-                    김교수 | 이젠컴퓨터학과 <br>
-                    수강신청인원 / 정원 (총 <span id="weben"></span>/30) | 학점 2 <br>
+                    <div class="classson">
+	                    웹디자인 월(09:00~10:00) <br>
+	                    김교수 | 이젠컴퓨터학과 <br>
+	                    인원 / 정원 (총 <span id="weben">22</span>/30) | 학점 2 
+	                </div> <!--  /classson -->    
                 </div><!-- /web -->
                 <div class="submitbox" class="">
                     <input type="submit" value="신청하기" name="ty"  class="pass" id="mon1"/>
@@ -141,9 +143,11 @@ $(document).ready(function() {
             <div class="class">
                 <div class="java">
                     <input type="checkbox" class="textcheck" id="mon2" value="자바프로그램 월(11:00~12:00)">
-                    <br>자바프로그래밍 월(11:00~12:00) <br>
-                    박교수 | 이젠컴퓨터학과 <br>
-                    수강신청인원 / 정원 (총 <span id="javaen"></span>/30) | 학점 2 <br>
+                    <div class="classson">
+	                    자바프로그래밍 월(11:00~12:00) <br>
+	                    박교수 | 이젠컴퓨터학과 <br>
+	                    인원 / 정원 (총 <span id="javaen">25</span>/30) | 학점 2
+	                </div> <!--  /classson --> 
                 </div> <!--/java-->
                 <div class="submitbox" class="2">
                     <input type="submit" value="신청하기" name="ty" class="pass" id="mon2"/>              
@@ -158,9 +162,11 @@ $(document).ready(function() {
             <div class="class">
                 <div class="DB">
                     <input type="checkbox" class="textcheck" id="wed4" value="데이터베이스 수(14:00~15:00)">
-                    <br>데이터베이스 수(14:00~15:00) <br>
-                    이교수 | 이젠컴퓨터학과 <br>
-                    수강신청인원 / 정원 (총 <span id="DBen"> 0 </span>/1) | 학점 3 <br>
+                    <div class="classson">
+	                    데이터베이스 수(14:00~15:00) <br>
+	                    이교수 | 이젠컴퓨터학과 <br>
+	                    인원 / 정원 (총 <span id="DBen"> 30 </span>/30) | 학점 3 
+                    </div> <!--  /classson -->
                 </div> <!--/checkbox-->
                 <div class="submitbox">
                     <input type="submit" value="신청하기" name="ty" class="pass" id="wed4" />
@@ -175,9 +181,11 @@ $(document).ready(function() {
             <div class="class">
                 <div class="final">
                     <input type="checkbox" class="textcheck" id="tue1" value="영상편집 화(09:00~10:00)">
-                    <br>영상편집 화(09:00~10:00)<br>
-                    나교수 | 이젠컴퓨터학과 <br>
-                    수강신청인원 / 정원 (총 <span id="finalen"></span>/30) | 학점 2 <br>
+                    <div class="classson">
+	                    영상편집 화(09:00~10:00)<br>
+	                    나교수 | 이젠컴퓨터학과 <br>
+	                    인원 / 정원 (총<span id="finalen">11</span>/30) | 학점 2 
+                    </div> <!--  /classson -->
                 </div> <!--/checkbox-->
                 <div class="submitbox" class="4">
                     <input type="submit" value="신청하기" name="ty" class="pass" id="tue1"/>
