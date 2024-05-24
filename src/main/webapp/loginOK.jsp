@@ -4,8 +4,6 @@
 <%
     String id = request.getParameter("id");
     String pass = request.getParameter("pass");
-    
-    
 %>
 <html>
 <head>

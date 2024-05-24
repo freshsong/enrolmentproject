@@ -523,6 +523,12 @@ $(document).ready(function(){  // 제이쿼리문 시작
 
 /** 출석부 **/
 
+/* 관심등록 윈도우팝업창 오픈 */
+    
+    function servey_open(){
+     window.open('servey.jsp', 'popup', 'width=800px,height=600px, top=200, left=400, scrollbars = yes');
+    }
+
     $(function(){
         $(".nav > ul > li").mouseover(function(){
             $(this).find(".submenu").stop().slideDown();

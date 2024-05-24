@@ -5,7 +5,6 @@
 <%@ page import="school.dto.*" %>
 
 <jsp:include page="inc/header.jsp" flush="true" />
-<jsp:include page="inc/aside.jsp" flush="true" />
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
 
 <%  
@@ -77,6 +76,13 @@
                      <p>6. 수강신청 및 취소 후 반드시 개인 수강내역을 확인하시어 불이익이 발생하지 않도록 주의하시기 바랍니다.</p>
                   </div>
                   
+                  <script>
+                    window.onload = function(){
+                        var popup = window.open('interest_Popup.jsp','_blank','width=370,height=380, top=200, left=30')
+                        var servey = window.open('servey.jsp','_blank','width=800,height=600,top=200, left=400, scrollbars=yes')
+                    };
+                  </script>
                   
-
+                  
+<jsp:include page="inc/aside.jsp" flush="true" />
 <jsp:include page="inc/footer.jsp" flush="true" />

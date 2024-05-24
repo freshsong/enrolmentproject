@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="inc/header.jsp" flush="true" />
-<jsp:include page="inc/aside.jsp" flush="true" />
+
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="school.dto.*" %>
@@ -115,5 +115,5 @@
 
 </div><!--req_container-->
          
-
+<jsp:include page="inc/aside.jsp" flush="true" />
 <jsp:include page="inc/footer.jsp" flush="true" />

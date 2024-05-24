@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <jsp:include page="inc/header.jsp" flush="true" />
-<jsp:include page="inc/aside.jsp" flush="true" />
+
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="school.dto.*" %>
@@ -133,5 +133,5 @@
                 </tr>
             </tbody>
         </table>
-        
+<jsp:include page="inc/aside.jsp" flush="true" />
 <jsp:include page="inc/footer.jsp" flush="true" />

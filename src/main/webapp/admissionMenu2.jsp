@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="inc/header.jsp" flush="true" />
-<jsp:include page="inc/aside.jsp" flush="true" />
+
     
  <div class="tablebox">
     <div class="textbox formbox">
@@ -55,5 +55,5 @@ function panTo() {
     경기도 김포시 김포한강4로 125 KR 월드타워 10층
     </div>
    </div>  
-        
+<jsp:include page="inc/aside.jsp" flush="true" />        
 <jsp:include page="inc/footer.jsp" flush="true" />

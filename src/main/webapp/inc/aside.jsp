@@ -11,7 +11,7 @@
 
 
 %>
-
+  </section>
 <div class="aside">
              <%
                 if(rolee == null){
@@ -112,4 +112,3 @@
                </div>
                <!-- section -->
 
-               <section id="section" class="menuSection">

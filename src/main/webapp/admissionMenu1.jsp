@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="inc/header.jsp" flush="true" />
-<jsp:include page="inc/aside.jsp" flush="true" />
+
     
  <div class="tablebox">
     <div class="textbox formbox">
@@ -10,7 +10,7 @@
 </div>
     <div class="infobox">
     <h5 class="subti">전형일정</h5>
-    <div class="infohead mymenu col-table">
+    <div class="infohead mymenu col-table " id="infohead">
     
     <table>
         <colgroup>
@@ -50,7 +50,7 @@
     </div>
     <div class="infobox">
     <h5 class="subti">성적반영 비율</h5>
-    <div class="infohead mymenu col-table">
+    <div class="infohead mymenu col-table" id="infohead">
     
     <table>
         <colgroup>
@@ -110,5 +110,5 @@
     </div>
     </div>   
         
-        
+<jsp:include page="inc/aside.jsp" flush="true" />
 <jsp:include page="inc/footer.jsp" flush="true" />

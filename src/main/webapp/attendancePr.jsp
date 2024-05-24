@@ -3,7 +3,7 @@
     
 <jsp:include page="inc/header.jsp" flush="true" />
 
-<jsp:include page="inc/aside.jsp" flush="true" />
+
 
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
@@ -13,14 +13,43 @@
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
 
 <%
+   
    Connection conn = db.getConnection();
    AttendanceDao dao = new AttendanceDao(conn);
    String pf = (String) session.getAttribute("name");
    System.out.println(pf);
    
    int num = dao.scheduleId(pf);
+   request.setCharacterEncoding("UTF-8");
+   String[] seq = request.getParameterValues("seq");
+   String[] check = new String[seq.length];
+   String[] num2 =  new String[seq.length];
    
+   String[] check1 = new String[seq.length];
+   
+   for(int i = 0; i<check.length; i++){
+      check[i] = request.getParameter("check"+i);
+      num2[i] = request.getParameter("num"+i);
+      System.out.println(check[i]);
+      System.out.println(num2[i]);
+      if(check[i].equals("att")){
+         check1[i] = "출석";
+      }
+      if(check[i].equals("abs")){
+         check1[i] = "결석";
+      }
+      if(check[i].equals("late")){
+         check1[i] = "지각";
+      }
+      if(check[i].equals("ets")){
+         check1[i] = "기타";
+      }
+      
+      System.out.println(check1[i]);
+   }
+   System.out.println(request.getParameter("num"));
    System.out.println(num);
+   //int num = 1;
    ArrayList<ADto> list = dao.view(num);
    
    String dep = null;
@@ -33,12 +62,7 @@
    
    Timestamp time = null;
    
-   for(int i = 0; i<list.size(); i++){
-      ADto dto = list.get(i);
-      
-      time = dto.getTime();
 
-   }
    
    SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
    db.closeConnection();
@@ -46,6 +70,7 @@
 %>
 
 
+<div class="tab-menu1">
      <div class="tab-menu attmenu">
                            <div class="tab-btn">
                              <h3>출석부</h3>
@@ -53,7 +78,6 @@
                                <ul>
                                    <li class="active"><a href="attendance.jsp">출석 관리</a></li>
                                    <li><a href="attendancePr.jsp">출석부</a></li>
-                                   <li><a href="#">성적 항목 관리</a></li>
                                </ul>
                            </div>
                            <div class="tab-cont">
@@ -94,7 +118,7 @@
                     
                                             <!-- 출석부 -->
                      <div class="d-day">
-                            <%=sdf.format(time) %> 
+                            sdf.format(time) 
                      </div>
                      <div class="atttablebox">            
                          <table>
@@ -126,32 +150,32 @@
                             </thead>
                             <tbody id="tby">
                             <%
-                                for(int i = 0; i<list.size(); i++){
-                                    ADto dto = list.get(i);
-                                    
-                                    dep = dto.getDep();
-                                    stnum = dto.getStNum();
-                                    name = dto.getStName();
-                                    att = dto.getAtt();
-                                    abs = dto.getAbs();
-                                    late = dto.getLate();
-                                    ets = dto.getEts();
-                                    
+                               for(int i = 0; i<list.size(); i++){
+                                  ADto dto = list.get(i);
+                                  
+                                  dep = dto.getDep();
+                                  stnum = dto.getStNum();
+                                  name = dto.getStName();
+                                  att = dto.getAtt();
+                                  abs = dto.getAbs();
+                                  late = dto.getLate();
+                                  ets = dto.getEts();
+                                  
                             %>
                                <tr>
-                                  <td>1</td>
+                                  <td><%=i+1 %></td>
                                   <td><%=dep %></td>
                                   <td>1</td>
                                   <td><%=stnum %></td>
                                   <td><%=name %></td>
-                                  <td>출석</td>
+                                  <td><%=check1[i] %></td>
                                   <td><%=att %></td>
                                   <td><%=abs %></td>
                                   <td><%=late %></td>
                                   <td><%=ets %></td>
                               </tr>
                               <%
-                                }
+                               }
                               %>
                             </tbody>
                          </table>
@@ -171,9 +195,10 @@
                        </div>
                      </div>              
                 </div>
+
                 
 
 
 
-
+<jsp:include page="inc/aside.jsp" flush="true" />
 <jsp:include page="inc/footer.jsp" flush="true" />

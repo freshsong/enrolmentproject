@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="inc/header.jsp" flush="true" />
-<jsp:include page="inc/aside.jsp" flush="true" />
+
 <div class="tablebox">
     <div class="textbox formbox">
         <h3>학사연락처</h3>
@@ -9,7 +9,7 @@
 </div> 
 <div class="infobox">
 <h5 class="subti">연락처</h5>
-    <div class="infohead mymenu col-table">
+    <div class="infohead mymenu col-table" id="col-table">
         <table>
         <colgroup>
             <col style="width: 13%">
@@ -38,4 +38,5 @@
     </table>
     </div>
     </div>
+    <jsp:include page="inc/aside.jsp" flush="true" />
 <jsp:include page="inc/footer.jsp" flush="true" />

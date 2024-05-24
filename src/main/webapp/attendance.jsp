@@ -3,7 +3,7 @@
     
 <jsp:include page="inc/header.jsp" flush="true" />
 
-<jsp:include page="inc/aside.jsp" flush="true" />
+
 
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
@@ -12,25 +12,48 @@
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
 
 <%
+   request.setCharacterEncoding("UTF-8");
    Connection conn = db.getConnection();
    AttendanceDao dao = new AttendanceDao(conn);
-   String pf = (String) session.getAttribute("name");
-   System.out.println(pf);
+   //String pf = (String) session.getAttribute("name");
+
+   int num = 1;
    
-   int num = dao.scheduleId(pf);
-   
-   System.out.println(num);
    ArrayList<ADto> list = dao.view(num);
    
    int stnum = 0;
+   int att = 0;
+   int abs = 0;
+   int late = 0;
+   int ets = 0;
    String dep = null; 
    String name = null; 
    String phoneNum =null; 
+   
+   
+   
+   for(int i = 0; i<list.size(); i++){
+         ADto dto = list.get(i);
+         
+         stnum = dto.getStNum();
+         dep = dto.getDep();
+         name = dto.getStName();
+         phoneNum = dto.getStPhoneNum();
+         
+         att = dto.getAtt();
+         abs = dto.getAbs();
+         late = dto.getLate();
+         ets = dto.getEts();
+         
+      }
+   
+   
    
    db.closeConnection();
    
 %>
 
+<div class="tab-menu1">
      <div class="tab-menu attmenu">
                            <div class="tab-btn">
                              <h3>출석 관리</h3>
@@ -38,7 +61,6 @@
                                <ul>
                                    <li class="active"><a href="attendance.jsp">출석 관리</a></li>
                                    <li><a href="attendancePr.jsp">출석부</a></li>
-                                   <li><a href="#">성적 항목 관리</a></li>
                                </ul>
                            </div>
                            <div class="tab-cont">
@@ -96,8 +118,8 @@
                                             <!-- 출석부 -->
                      <div id="check">
                            <p>*출석현황을 체크하신 후에 하단의 저장버튼을 눌러주세요</p>
-                           <input type="radio"  name="frcheck" value="reset">
-                              <label for="초기화">초기화</label>
+                           <input type="radio"  name="frcheck" value="att">
+                              <label for="출석">출석</label>
                            <input type="radio"  name="frcheck" value="abs">
                               <label for="결석">결석</label>
                            <input type="radio"  name="frcheck" value="late">
@@ -107,7 +129,7 @@
                            <button type="submit" class="btn" id="att_btn3">일괄상태처리</button>
                      </div>
                      <div class="atttablebox"> 
-                     <form name="attform" action="attendanceOk.jsp" method="post">           
+                     <form name="attform" action="attendancePr.jsp" method="post">           
                          <table>
                             <colgroup>
                                <col width="11%">
@@ -131,7 +153,7 @@
                                </tr>
                             </thead>
                             <tbody id="tby">
-                                                       <%
+                            <%
                               for(int i=0; i<list.size(); i++){
                                 ADto dto = list.get(i);
                                 dep = dto.getDep();
@@ -139,37 +161,47 @@
                                 name = dto.getStName();
                               
                             %>
+                              <input type="hidden" name="seq" value="<%=i%>">
+
+                                                 
                                <tr>
                                   <td><i class="ri-image-line" alt="사진"></i></td>
                                   <td><%=dep %></td>
                                   <td>1학년</td>
                                   <td><%=stnum %></td>
+                                  <input type="hidden" value="<%=stnum %>" name="num<%=i %>"/>
                                   <td><%=name %></td>
                                   <td>
                                   
-                                   <input type="radio" name="check<%=i %>" value="출석">
+                                   <input type="radio" name="check<%=i %>" value="att">
+                        
                                    <label for="출석">출석</label>
-                                   
                                  </td>
                                   <td>
                                   
-                                   <input type="radio" name="check<%=i %>" value="결석">
+                                   <input type="radio" name="check<%=i %>" value="abs">
+                                  
                                    <label for="결석">결석</label>
                                    
                                  </td>
                                   <td>
                                   
-                                   <input type="radio"  name="check<%=i %>" value="지각">
+                                   <input type="radio"  name="check<%=i %>" value="late">
+                                  
                                    <label for="지각">지각</label>
                                    
                                  </td>
                                   <td>
                                   
-                                   <input type="radio" name="check<%=i %>" value="기타">
+                                   <input type="radio" name="check<%=i %>" value="ets">
+                                  
+                                   
                                    <label for="기타">기타</label>
                                    
                                  </td>
                                </tr>
+                               
+                               
                                <%
                                 }
                                %>
@@ -179,7 +211,7 @@
                          <button type="submit" class="btn btn-outline-dark">
                            저장
                          </button>
-                         <input type="hidden" value="<%=stnum %>" name="num"/>
+                       
                          </form>
                          <div class="pgbox">
                            <ul class="paging">
@@ -194,9 +226,10 @@
                        </div>
                      </div>              
                 </div>
+
                 
 
 
 
-
+<jsp:include page="inc/aside.jsp" flush="true" />
 <jsp:include page="inc/footer.jsp" flush="true" />

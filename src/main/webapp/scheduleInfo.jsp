@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="inc/header.jsp" flush="true" />
-<jsp:include page="inc/aside.jsp" flush="true" />
+
 
 <div class="notice">
     <div class="left">수강신청 마감일정 2024년 04월 02일 18:00<br>
@@ -49,6 +49,6 @@
                      <p>[매크로 등의 사설 프로그램 사용 또는 타인의 정보 무단 사용이 적발될 경우 학칙에 의한 징계 대상이 될 수 있습니다.]</p>
                   </div>
 
-
+<jsp:include page="inc/aside.jsp" flush="true" />
 <jsp:include page="inc/footer.jsp" flush="true" />
 

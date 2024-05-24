@@ -37,7 +37,7 @@ ul li{
     position: absolute;
     left: 0;
     top: 120px;
-    transition: all 400ms;
+    transition: all 200ms;
 }
 #header.on::after {
     height: 55px;
@@ -187,7 +187,7 @@ nav > ul > li > a:hover{
     color:#716dc8;
 }
 .container{
-    position:relative;
+   height:100%;
     margin-left:auto;
     margin-right:auto;
     display: flex;
@@ -195,7 +195,7 @@ nav > ul > li > a:hover{
 /***********aside**************/
 .aside{
     margin-top:30px;
-    position:absolute;
+
     width:350px;
     right:0;
     
@@ -282,7 +282,7 @@ nav > ul > li > a:hover{
     cursor: pointer;
 }
 #login_btn{
-    position:absolute;
+    position:relative;
     width:130px;
     margin:0;
     padding:0;
@@ -326,7 +326,6 @@ nav > ul > li > a:hover{
     border-radius:10px;
     margin-top:30px;
     padding:25px;
-    position:relative;
 }
 .notice_header{
     border-bottom:2px solid #ddd;
@@ -372,7 +371,7 @@ nav > ul > li > a:hover{
     border-radius:10px;
     margin-top:30px;
     padding:25px;
-    position:relative;
+
 }
 .faq_header{
     border-bottom:2px solid #ddd;
@@ -416,7 +415,7 @@ nav > ul > li > a:hover{
 /***********section**************/
 #section{
     width:calc(100% - 350px);
-    height : 1395.78px;
+    height : 100%;
 
 }
 .tablebox{
@@ -493,7 +492,7 @@ td:not(:last-child){
 .infohead{
     color:#2740cc;
     width:100%;
-    border-bottom:2px solid #ddd;
+    border-bottom:1px solid #000;
     margin-bottom:20px;
 }
 .infohead h3{
@@ -544,26 +543,74 @@ td:not(:last-child){
 
 /******회원 가입 페이지***/
 .joinpage{
-    width:1200px;
+   width:100%;
    margin-top:3%;
-   margin-left:auto;
-   margin-right:auto;
+   margin-left:200px;
+
+
 }
 .registerform{
     border:1px solid #ddd;
     border-radius:8px;
-    padding:50px;
+    margin-top:30px;
+    padding:50px 20px;
 }
 .registerform label{
     display:block;
-    background-color:#e8eaeb;
+    background-color:#eef5ff;
     line-height:35px;
     margin-top:5px;
     flex-basis: 125px;
     max-width:125px;
 }
 .listbox>h1{
-    color:#1c30a3;
+    color:#2740cc;
+}
+.zipcode{
+   height:35px;
+}
+#zip{
+    background:#fff;
+    border-radius:5px;
+    border:1px solid #c7d1de;
+    font-size:16px;
+    color:#000;
+}
+#zip:hover{
+   border:1px solid #277cf3;
+    background:#277cf3;
+    color:#fff;
+}
+.joinpage .row{
+   width:90%;
+}
+rename_btn2{
+    width:140px;
+    height: 40px;
+    background:#fff;
+    border-radius:5px;
+    border:1px solid #c7d1de;
+    font-size:16px; 
+    color:#000;
+}
+.rename_btn2:hover{
+   border:1px solid #ff0000;
+   background:#ee0000;
+   color:#fff;
+ }
+
+.rename_btn{
+    width:140px;
+    height: 40px;
+    background:#fff;
+    border-radius:5px;
+    border:1px solid #c7d1de;
+    font-size:16px; 
+}
+.rename_btn:hover{
+   border:1px solid #277cf3;
+    background:#277cf3;
+    color:#fff;
 }
 
 
@@ -622,9 +669,8 @@ td:not(:last-child){
 }
 
 
+
 /* 수강신청 */
-
-
 .notice{
     border-radius: 15px;
     background-color: #3a1fb1;
@@ -662,7 +708,7 @@ td:not(:last-child){
    color:#fff;
 }
 .req_box1 p{
-	font-size: 14px;
+   font-size: 14px;
 }
 .popbody1{
     list-style-type: none;
@@ -676,27 +722,26 @@ td:not(:last-child){
 }
 .class{
    border-radius: 10px;
-    border: 1px solid #ddd;
-    margin : 11px;
-    display: flex;
-    justify-content: space-between;
+   height: 118px;
+   border: 1px solid #ddd;
+   margin : 11px;
+   display: flex;
+   justify-content: space-between;
+   padding:10px;
 }
-
 /* 체크박스를 왼쪽에 정렬 */
 .web, .java, .DB, .final {
-    margin: 30px;
+    margin: 8px;
     align-items: center;
 }
-
 .textcheck {
     margin-right: 20px; /* 체크박스와 텍스트 사이 간격 조정 */
    width:15px;
    height:15px;
 }
-
 /* 개별 수강 신청하기, 취소하기 버튼을 오른쪽에 정렬 */
 .submitbox {
-    margin-top: 35px;
+    margin-top: 20px;
 }
 .pass, .cancel{
    padding: 10px;
@@ -715,7 +760,8 @@ td:not(:last-child){
    color: #fff;
 }
 .classson{
-	font-size: 20px;
+   font-size: 17px;
+   font-weight:500;
 }
 .final > .textcheck{
    float: left;
@@ -740,10 +786,17 @@ td:not(:last-child){
 .req_box1{
    border:1px solid #c7d1de;
 }
+.reqbox_1{
+   width:130px;
+}
 .req_box1:hover{
    background: #277cf3;
     color: #fff;
 }
+
+
+
+
 
 
 
@@ -984,13 +1037,22 @@ td:not(:last-child){
    width:calc(100% - 350px);
 }
 .formbox{
-   margin-top:-30px;
+   margin:0;
+   padding:10px 30px;
+
+}
+.formbox h3{
+   color:#2740cc;
+   font-weight:700;
+   margin:0;
+   font-size:25px;
 }
 
 .mymenu h3{
    margin-left : 215px;
    text-align : center;
    width : 300px;
+   color:#2740cc;
 }
 
 
@@ -1031,11 +1093,13 @@ td:not(:last-child){
   #check{
     padding:0;
     margin: 0;
+    padding-right:20px;
     width: 900px;
     height: 80px;
     background-color: #ffffff; 
     text-align: right;
     top: 475px;
+    
 
   }
   /* nav */
@@ -1046,6 +1110,9 @@ td:not(:last-child){
   }
 
   /*tab-munu*/
+  .tab-menu1{
+     margin-right:20px;
+  }
   .tab-menu{
     margin-left:auto;
     margin-right:auto;
@@ -1256,16 +1323,28 @@ td:not(:last-child){
 /*** 학사안내 ***/
 
 .subti{
-   color : #333;
-   font-weight:700;
+   color:#2740cc;
+   font-weight:600;
 }
 
 /*** 학사 소개 ***/
 .affme2{
    color : #212121;
 }
+.affme2 p {
+   font-size:17px;
+   font-weight:500;
+   line-height:25px;
+   letter-spacing:1px;
+}
 #afm2 li{
    list-style-type: disc;
+   margin-left:28px;
+   font-size:15px;
+   font-weight:400;
+}
+.affme3:not(:first-child){
+   margin-top:30px;
 }
 
 
@@ -1273,37 +1352,47 @@ td:not(:last-child){
 .col-table{
    width:100%;
    height:auto;
-   border-top:1px solid #212121;
+   border-top:1px solid #000;
    overflow-x:auto;
    
 }
 .col-table table th{
-   font-size:16px;
-   font-weight:600;
-   color:#212121;
+   font-size:18px;
+   font-weight:500;
+   color:#000;
    line-height:28px;
    height:56px;
    text-align:center;
    padding:8px 24px;
-   border-right:1px solid #e6e6e6;
-   background-color:#f7f7f7;
+   background-color:#eef5ff;
+}
+.col-table table th:not(:last-chid){
+   border-right:1px solid #ddd;
 }
 .col-tabel table{
    width:100%;
    table-layout:fixed;
    border-collapse:collapse;
+   border-bottom:none;
+}
+#col-table{
+   border-bottom:none;
 }
 .col-table table tbody tr{
    border-bottom:1px solid #e6e6e6;
 }
 .col-table table tbody td{
    font-size:14px;
-   color:#666;
+   color:#000;
+   font-weight:400;
    line-height:28px;
    height:56px;
    text-align:center;
    padding:8px 24px;
-   border-right:1px solid #e6e6e6;
+
+}
+.col-table table tbody td:not(:last-child){
+   border-right:1px solid #ddd;
 }
 
 /*** 오시는 길 ***/
@@ -1335,3 +1424,47 @@ td:not(:last-child){
    color:black;
 }
 
+#infohead{
+   border-bottom:none;
+}
+/**********설문조사***********/
+.servey_box{
+   margin-left:auto;
+   margin-right:auto;
+   width:700px;
+   height:850px;
+   padding:30px;
+   top:10px;
+   left:50px;
+    background: #fff;
+    z-index: 999;
+    text-align:left;
+}
+
+.servey_box h1{
+   font-size:32px;
+   font-weight:500;
+   color:#2740cc;
+   border-bottom:1px solid #000;
+   margin-bottom:10px;
+   padding-bottom:20px;
+}
+.servey_box h3{
+   font-size:25px;
+   font-weight:500;
+   color:#2740cc;
+}
+.servey_box p{
+   margin-top:50px;
+   font-size:19px;
+   font-weight:400;
+}
+.servey_box p span{
+   color:#2740cc;
+}
+.servey_box table{
+   width:100%;
+}
+.servey_box table thead tr{
+   background-color:#eef5ff;
+}
