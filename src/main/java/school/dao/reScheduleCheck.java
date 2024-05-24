@@ -147,105 +147,20 @@ public class reScheduleCheck extends HttpServlet {
             + "          </div>\r\n"
             + "          </div>\r\n"
             + "        </div>   \r\n"
-            + "          <div class=\"container\">");
+            + "<div class=\"container\">\r\n"
+            + "               <section id=\"section\" class=\"menuSection\">\r\n"
+            + "               \r\n"
+            + "               ");
         
-      //aside
-      out.println("\r\n"+ "<div class=\"aside\">");
-       if(rolee == null){
-             if(role == null){
-        out.println("div class=\"login_box\">\r\n"
-              + "                     <p>로그인을 해주세요.</p>\r\n"
-              + "                     <div class=\"btnbox\">\r\n"
-              + "                        <button type=\"button\" class=\"btn btn-outline-dark\" id=\"st\" onclick=\"location.href='index.jsp?role=st'\"> 학생 </button>\r\n"
-              + "                        <button type=\"button\" class=\"btn btn-outline-dark\" id=\"pr\" onclick=\"location.href='index.jsp?role=pr'\"> 교수 </button>\r\n"
-              + "                     </div>\r\n"
-              + "                     <a href=\"join.jsp\">회원가입하기</a>\r\n"
-              + "                 </div>");
-         }
-          else if(role.equals("st")){
-        out.println("<div class=\"login_box_st\">\r\n"
-              + "                     <form name=\"loginForm\" action=\"LoginSevlet\" class=\"loginform\" id=\"loginform\" method=\"post\">\r\n"
-              + "                        <input type=\"text\" class=\"form-control userid mb-3\" id=\"uid\"\r\n"
-              + "                              placeholder=\"학번을 입력해 주세요.\" name=\"uid\"/>\r\n"
-              + "                        <input type=\"password\" class=\"form-control userpass mb-3\" id=\"upass\"\r\n"
-              + "                              placeholder=\"비밀번호를 입력해 주세요.\" name=\"upass\" />\r\n"
-              + "                              <input type=\"hidden\" value=\""+ role +"\" name=\"val\"/>           \r\n"
-              + "                        <button type=\"submit\" id =\"login_btn\" class=\"btn btn-outline-secondary btn-block\">로그인</button>                                          \r\n"
-              + "                        <a href=\"join.jsp\">회원가입</a>\r\n"
-              + "                        <div class=\"remem text-right mr-4 font-weight-400\">\r\n"
-              + "                           <label> 아이디 기억 <input type=\"checkbox\" name=\"rid\" value=\"rid\" id=\"rid\"></label>\r\n"
-              + "                        </div>\r\n"
-              + "                     </form>\r\n"
-              + "                 </div>");
-          }
-          else if(role.equals("pr")){
-        out.println("<div class=\"login_box_st\">\r\n"
-              + "                     <form name=\"loginForm\" action=\"LoginSevlet\" class=\"loginform\" id=\"loginform\" method=\"post\">\r\n"
-              + "                        <input type=\"text\" class=\"form-control userid mb-3\" id=\"uid\"\r\n"
-              + "                              placeholder=\"아이디를 입력하세요.\" name=\"uid\"/>\r\n"
-              + "                        <input type=\"password\" class=\"form-control userpass mb-3\" id=\"upass\"\r\n"
-              + "                              placeholder=\"비밀번호를 입력해 주세요.\" name=\"upass\" />\r\n"
-              + "                              <input type=\"hidden\" value=\"" + role + "\" name=\"val\"/>          \r\n"
-              + "                        <button type=\"submit\" id =\"login_btn\" class=\"btn btn-outline-secondary btn-block\">로그인</button>                     \r\n"
-              + "                        <a href=\"join.jsp\">회원가입</a>\r\n"
-              + "                        <div class=\"remem text-right mr-4 font-weight-400\">\r\n"
-              + "                           <label> 아이디 기억 <input type=\"checkbox\" name=\"rid\" value=\"rid\" id=\"rid\"></label>\r\n"
-              + "                        </div>\r\n"
-              + "                     </form>\r\n"
-              + "                 </div>");
-          }
-         }
-         else{
-         if(rolee.equals("st1")){
-        out.println("<div class=\"login_box_st2\">\r\n"
-              + "                  <p class=\"pb-4\">" + name + "환영합니다.</p>\r\n"
-              + "                  <form name=\"logoutForm\" action=\"LoginSevlet\" method=\"get\">\r\n"
-              + "                  <button type=\"submit\" id =\"login_btn\" class=\"btn btn-outline-secondary btn-block\">로그아웃</button>\r\n"
-              + "                  </form>                                          \r\n"
-              + "               </div>");
-         }
-         else if(rolee.equals("pr1")){
-        out.println("<div class=\"login_box_st2\">\r\n"
-              + "                     <p class=\"pb-4\">" + name + "환영합니다.</p>\r\n"
-              + "                     <form name=\"logoutForm\" action=\"LoginSevlet\" method=\"get\">\r\n"
-              + "                     <button type=\"submit\" id =\"login_btn\" class=\"btn btn-outline-secondary btn-block\">로그아웃</button>\r\n"
-              + "                     </form>                                          \r\n"
-              + "                </div>");    
-         }
-         }
-        out.println("\r\n"
-              + "                 <button type=\"button\" class=\"btn-btn-outline-dark\" id=\"cart_info\">장바구니 초보를 위한 수강신청 안내<i class=\"ri-arrow-right-line\"></i></button>\r\n"
-              + "                 <button type=\"button\" class=\"btn-btn-outline-dark\" id=\"cart_info2\">수강신청방법 매뉴얼<i class=\"ri-download-line\"></i></button>\r\n"
-              + "                 <div class=\"aside_notice\">\r\n"
-              + "                     <div class=\"notice_header\">\r\n"
-              + "                        <h4>공지사항<span>더보기<i class=\"ri-arrow-right-s-line\"></i></span></h4>\r\n"
-              + "                     </div>\r\n"
-              + "                     <p><a href=\"#\"><span>-</span> [필독]2024학년도 1학기 수강신청 부하시간</a></p>\r\n"
-              + "                     <p><a href=\"#\"><span>-</span>  2024 학년도 1학기 기초 교양 수강편람 안내 </a></p>\r\n"
-              + "                     <p><a href=\"#\"><span>-</span> ★ 2024학년도 1학기 수강신청 변경 및 취소</a></p>\r\n"
-              + "                     <p><a href=\"#\"><span>-</span>  2024학년도 1학기 전공 및 대학원 폐강 강좌</a></p>\r\n"
-              + "                  </div>\r\n"
-              + "                 <div class=\"aside_faq\">\r\n"
-              + "                     <div class=\"faq_header\">\r\n"
-              + "                        <h4>FAQ<span>더보기<i class=\"ri-arrow-right-s-line\"></i></span></h4>\r\n"
-              + "                     </div>\r\n"
-              + "                     <p><a href=\"#\"><span>Q</span> 수강반 제한이란 무엇인가요?</a></p>\r\n"
-              + "                     <p><a href=\"#\"><span>Q</span> 수강취소 FAQ</a></p>\r\n"
-              + "                     <p><a href=\"#\"><span>Q</span> eTL 관련 FAQ</a></p>\r\n"
-              + "                     <p><a href=\"#\"><span>Q</span> 재수강 및 성적평가방법 변경 FAQ</a></p>\r\n"
-              + "                 </div>\r\n"
-              + "               </div>\r\n"
-              + "               <!-- section -->\r\n"
-              + "\r\n"
-              + "               <section id=\"section\" class=\"menuSection\">");
+     
       
       //시간표 위 확인박스 (내용 다르게)
-	  out.println("<div class=\"notice\">\r\n"
-	  		+ "    <div class=\"left\">수강신청 미리보기 화면입니다.<br>\r\n"
-	  		+ "                      ! 수강신청하시는 일정을 반드시 확인해주세요 !</div>\r\n"
-	  		+ "    <div class=\"right\"> - 마감시간 이후에는 변경이 불가하며, 인원충족 시 전산확정 됩니다.<br>\r\n"
-	  		+ "                       - 장바구니 담기 기간 이후의 변경내역은 장바구니에 적용되지 않습니다.</div>\r\n"
-	  		+ "</div> <!--/notice--> ");
+     out.println("<div class=\"notice\">\r\n"
+           + "    <div class=\"left\">수강신청 미리보기 화면입니다.<br>\r\n"
+           + "                      ! 수강신청하시는 일정을 반드시 확인해주세요 !</div>\r\n"
+           + "    <div class=\"right\"> - 마감시간 이후에는 변경이 불가하며, 인원충족 시 전산확정 됩니다.<br>\r\n"
+           + "                       - 장바구니 담기 기간 이후의 변경내역은 장바구니에 적용되지 않습니다.</div>\r\n"
+           + "</div> <!--/notice--> ");
         
         
       //스케쥴러 보여지는 메인화면
@@ -381,11 +296,98 @@ public class reScheduleCheck extends HttpServlet {
       out.println("</tr>");
       out.println("</tbody>");
       out.println("</table>");
-      out.println("</BODY>");
-      out.println("</HTML>");
-      out.println("  \r\n"
-              + "                   </section>\r\n"
-              + "          </div>\r\n"
+      
+      //aside
+      out.println("</section>\r\n"
+            + "<div class=\"aside\">");
+       if(rolee == null){
+             if(role == null){
+        out.println("div class=\"login_box\">\r\n"
+              + "                     <p>로그인을 해주세요.</p>\r\n"
+              + "                     <div class=\"btnbox\">\r\n"
+              + "                        <button type=\"button\" class=\"btn btn-outline-dark\" id=\"st\" onclick=\"location.href='index.jsp?role=st'\"> 학생 </button>\r\n"
+              + "                        <button type=\"button\" class=\"btn btn-outline-dark\" id=\"pr\" onclick=\"location.href='index.jsp?role=pr'\"> 교수 </button>\r\n"
+              + "                     </div>\r\n"
+              + "                     <a href=\"join.jsp\">회원가입하기</a>\r\n"
+              + "                 </div>");
+         }
+          else if(role.equals("st")){
+        out.println("<div class=\"login_box_st\">\r\n"
+              + "                     <form name=\"loginForm\" action=\"LoginSevlet\" class=\"loginform\" id=\"loginform\" method=\"post\">\r\n"
+              + "                        <input type=\"text\" class=\"form-control userid mb-3\" id=\"uid\"\r\n"
+              + "                              placeholder=\"학번을 입력해 주세요.\" name=\"uid\"/>\r\n"
+              + "                        <input type=\"password\" class=\"form-control userpass mb-3\" id=\"upass\"\r\n"
+              + "                              placeholder=\"비밀번호를 입력해 주세요.\" name=\"upass\" />\r\n"
+              + "                              <input type=\"hidden\" value=\""+ role +"\" name=\"val\"/>           \r\n"
+              + "                        <button type=\"submit\" id =\"login_btn\" class=\"btn btn-outline-secondary btn-block\">로그인</button>                                          \r\n"
+              + "                        <a href=\"join.jsp\">회원가입</a>\r\n"
+              + "                        <div class=\"remem text-right mr-4 font-weight-400\">\r\n"
+              + "                           <label> 아이디 기억 <input type=\"checkbox\" name=\"rid\" value=\"rid\" id=\"rid\"></label>\r\n"
+              + "                        </div>\r\n"
+              + "                     </form>\r\n"
+              + "                 </div>");
+          }
+          else if(role.equals("pr")){
+        out.println("<div class=\"login_box_st\">\r\n"
+              + "                     <form name=\"loginForm\" action=\"LoginSevlet\" class=\"loginform\" id=\"loginform\" method=\"post\">\r\n"
+              + "                        <input type=\"text\" class=\"form-control userid mb-3\" id=\"uid\"\r\n"
+              + "                              placeholder=\"아이디를 입력하세요.\" name=\"uid\"/>\r\n"
+              + "                        <input type=\"password\" class=\"form-control userpass mb-3\" id=\"upass\"\r\n"
+              + "                              placeholder=\"비밀번호를 입력해 주세요.\" name=\"upass\" />\r\n"
+              + "                              <input type=\"hidden\" value=\"" + role + "\" name=\"val\"/>          \r\n"
+              + "                        <button type=\"submit\" id =\"login_btn\" class=\"btn btn-outline-secondary btn-block\">로그인</button>                     \r\n"
+              + "                        <a href=\"join.jsp\">회원가입</a>\r\n"
+              + "                        <div class=\"remem text-right mr-4 font-weight-400\">\r\n"
+              + "                           <label> 아이디 기억 <input type=\"checkbox\" name=\"rid\" value=\"rid\" id=\"rid\"></label>\r\n"
+              + "                        </div>\r\n"
+              + "                     </form>\r\n"
+              + "                 </div>");
+          }
+         }
+         else{
+         if(rolee.equals("st1")){
+        out.println("<div class=\"login_box_st2\">\r\n"
+              + "                  <p class=\"pb-4\">" + name + "환영합니다.</p>\r\n"
+              + "                  <form name=\"logoutForm\" action=\"LoginSevlet\" method=\"get\">\r\n"
+              + "                  <button type=\"submit\" id =\"login_btn\" class=\"btn btn-outline-secondary btn-block\">로그아웃</button>\r\n"
+              + "                  </form>                                          \r\n"
+              + "               </div>");
+         }
+         else if(rolee.equals("pr1")){
+        out.println("<div class=\"login_box_st2\">\r\n"
+              + "                     <p class=\"pb-4\">" + name + "환영합니다.</p>\r\n"
+              + "                     <form name=\"logoutForm\" action=\"LoginSevlet\" method=\"get\">\r\n"
+              + "                     <button type=\"submit\" id =\"login_btn\" class=\"btn btn-outline-secondary btn-block\">로그아웃</button>\r\n"
+              + "                     </form>                                          \r\n"
+              + "                </div>");    
+         }
+         }
+        out.println("\r\n"
+              + "                 <button type=\"button\" class=\"btn-btn-outline-dark\" id=\"cart_info\">장바구니 초보를 위한 수강신청 안내<i class=\"ri-arrow-right-line\"></i></button>\r\n"
+              + "                 <button type=\"button\" class=\"btn-btn-outline-dark\" id=\"cart_info2\">수강신청방법 매뉴얼<i class=\"ri-download-line\"></i></button>\r\n"
+              + "                 <div class=\"aside_notice\">\r\n"
+              + "                     <div class=\"notice_header\">\r\n"
+              + "                        <h4>공지사항<span>더보기<i class=\"ri-arrow-right-s-line\"></i></span></h4>\r\n"
+              + "                     </div>\r\n"
+              + "                     <p><a href=\"#\"><span>-</span> [필독]2024학년도 1학기 수강신청 부하시간</a></p>\r\n"
+              + "                     <p><a href=\"#\"><span>-</span>  2024 학년도 1학기 기초 교양 수강편람 안내 </a></p>\r\n"
+              + "                     <p><a href=\"#\"><span>-</span> ★ 2024학년도 1학기 수강신청 변경 및 취소</a></p>\r\n"
+              + "                     <p><a href=\"#\"><span>-</span>  2024학년도 1학기 전공 및 대학원 폐강 강좌</a></p>\r\n"
+              + "                  </div>\r\n"
+              + "                 <div class=\"aside_faq\">\r\n"
+              + "                     <div class=\"faq_header\">\r\n"
+              + "                        <h4>FAQ<span>더보기<i class=\"ri-arrow-right-s-line\"></i></span></h4>\r\n"
+              + "                     </div>\r\n"
+              + "                     <p><a href=\"#\"><span>Q</span> 수강반 제한이란 무엇인가요?</a></p>\r\n"
+              + "                     <p><a href=\"#\"><span>Q</span> 수강취소 FAQ</a></p>\r\n"
+              + "                     <p><a href=\"#\"><span>Q</span> eTL 관련 FAQ</a></p>\r\n"
+              + "                     <p><a href=\"#\"><span>Q</span> 재수강 및 성적평가방법 변경 FAQ</a></p>\r\n"
+              + "                 </div>\r\n"
+              + "               </div>\r\n"
+              + "               <!-- section -->");
+      
+        out.println(
+               "          </div>\r\n"
               + "          <div class=\"footer\">\r\n"
               + "            <div class=\"footer_text\">\r\n"
               + "               <p>개인정보처리방침</p>\r\n"
