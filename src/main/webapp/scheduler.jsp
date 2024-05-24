@@ -142,7 +142,7 @@ $(document).ready(function() {
         <form action="scheduleOk.jsp" method="post">    
             <div class="class">
                 <div class="java">
-                    <input type="checkbox" class="textcheck" id="mon2" value="자바프로그램 월(11:00~12:00)">
+                    <input type="checkbox" class="textcheck" id="mon2" value="자바프로그램 월요일(11:00~12:00)">
                     <div class="classson">
 	                    수강과목 | 자바프로그램 월요일(11:00~12:00) <br>
 	                    박교수 | 이젠컴퓨터학과 <br>
@@ -161,7 +161,7 @@ $(document).ready(function() {
         <form action="scheduleOk.jsp" method="post">         
             <div class="class">
                 <div class="DB">
-                    <input type="checkbox" class="textcheck" id="wed4" value="데이터베이스 수(14:00~15:00)">
+                    <input type="checkbox" class="textcheck" id="wed4" value="데이터베이스 수요일(14:00~15:00)">
                     <div class="classson">
 	                    수강과목 | 데이터베이스 수요일(14:00~15:00) <br>
 	                    이교수 | 이젠컴퓨터학과 <br>
@@ -180,7 +180,7 @@ $(document).ready(function() {
         <form action="scheduleOk.jsp" method="post">           
             <div class="class">
                 <div class="final">
-                    <input type="checkbox" class="textcheck" id="tue1" value="영상편집 화(09:00~10:00)">
+                    <input type="checkbox" class="textcheck" id="tue1" value="영상편집 화요일(09:00~10:00)">
                     <div class="classson">
 	                    수강과목 | 영상편집 화요일(09:00~10:00)<br>
 	                    나교수 | 이젠컴퓨터학과 <br>
@@ -199,7 +199,7 @@ $(document).ready(function() {
         <form action="scheduleOk.jsp" method="post">           
             <div class="class">
                 <div class="final">
-                    <input type="checkbox" class="textcheck" id="fri4" value="영상편집 금(12:00~13:00)">
+                    <input type="checkbox" class="textcheck" id="fri4" value="영상편집 금요일(12:00~13:00)">
                     <div class="classson">
                         수강과목 | 영상편집 금요일(12:00~13:00)<br>
                         나교수 | 이젠컴퓨터학과 <br>

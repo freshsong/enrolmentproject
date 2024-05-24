@@ -740,8 +740,6 @@ td:not(:last-child){
     border-radius:5px;
 }  
 
-
-
 /*************popup*************/
 .popup{
     position:fixed;
