@@ -3,8 +3,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="java.util.*" %>
 <%@ page import="school.dto.*" %>
-<!DOCTYPE html>
-
+<jsp:include page="inc/header.jsp" flush="true" />
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
   
 <%
@@ -12,10 +11,7 @@
 	
 	
 %>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원가입</title>
+
 <link rel="stylesheet" href="css/style.css">
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
@@ -23,8 +19,7 @@
 <script src="js/script.js"></script>  
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
-</head>
-<body>
+
  <section class="bg-white pb-3 joinpage">
         <!-- listbox -->
    <div class="listbox">
@@ -38,12 +33,13 @@
                         <input type="text" name="name" id="name" 
                                class="form-control col-8" placeholder="이름" />
                     </div>
+                    <div class="col-2 mb-4"></div>
                     <div class="col-5 d-flex align-items-center mb-4">
                         <label for="stNum" class="text-right mr-3 col-4">학번*</label>
                         <input type="text" name="stNum" id="stNum" 
                                class="form-control col-8" placeholder="학번을 입력 해주세요." />
                     </div>
-                    <div class="col-2 mb-4"></div>
+                    
 
 
                     <div class="col-5 d-flex align-items-center mb-4">
@@ -51,12 +47,13 @@
                         <input type="password" name="pass" id="pass"
                                class="form-control col-8" placeholder="비밀번호">
                     </div>
+                    <div class="col-2 mb-4"></div>
                     <div class="col-5 d-flex align-items-center mb-4">
                         <label for="repass" class="text-right mr-3 col-4">비밀번호 확인</label>
                         <input type="password" name="repass" id="repass"
                                class="form-control col-8" placeholder="비밀번호확인">
                     </div>
-                    <div class="col-2 mb-4"></div>
+                    
 
                     <div class="col-6 d-flex align-items-center mb-4">
                         <label for="birth" class="text-right mr-3 col-4">생년월일</label>
@@ -83,7 +80,7 @@
 
 
                     <div class="col-5 d-flex">
-                      <label for="zip" class="text-right mr-2 col-5">우편번호</label>
+                      <label for="zip" class="text-right mr-2 col-5 zipcode">우편번호</label>
                       <input type="number" name="zipcode" id="zipcode"
                              class="form-control col-7 mx-2 mt-1" placeholder="우편번호" >
                     </div>
@@ -104,8 +101,8 @@
                     </div>
                 
                     <div class="col-12 text-center">
-                      <a href="index.jsp"><button class="btn btn-danger px-5 mx-2" type="button">취소</button></a>
-                        <button class="btn btn-primary px-5 mx-2" type="submit">전송</button>
+                      <a href="index.jsp"><button class="btn btn-outline-dark px-5 mx-2 rename_btn2" type="button">취소</button></a>
+                        <button class="btn btn-outline-dark px-5 mx-2 rename_btn" type="submit">전송</button>
                     </div>
                     
                  
@@ -114,5 +111,4 @@
    
    </div>
         </section>
-</body>
-</html>
+<jsp:include page="inc/footer.jsp" flush="true" />

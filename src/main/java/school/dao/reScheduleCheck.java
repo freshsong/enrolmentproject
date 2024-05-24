@@ -295,6 +295,7 @@ public class reScheduleCheck extends HttpServlet {
       out.println("</tr>");
       out.println("</tbody>");
       out.println("</table>");
+      out.println("<button class=\"btn btn-outline-dark sc_2button\" onclick=\"window.location.href='scheduler.jsp';\">뒤로가기</button>\r\n");
       out.println("</BODY>");
       out.println("</HTML>");
       out.println("  \r\n"

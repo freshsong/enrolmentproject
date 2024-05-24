@@ -29,6 +29,7 @@
    
    db.closeConnection();
 %>
+<button class="btn btn-outline-dark sc_2button" onclick="window.location.href='index.jsp';">뒤로가기</button>
 
  <table class="table table-bordered scheduler">
          <colgroup>
