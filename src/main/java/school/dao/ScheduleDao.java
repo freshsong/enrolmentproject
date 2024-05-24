@@ -75,15 +75,20 @@ public class ScheduleDao {
                   for(int i = 1; i<5; i++) {
                      rs = res.getInt("lectureNum"+i); // lectureNum1 -> x
                      System.out.println("4, rs : "+rs+", i : "+i);
-                     if(rs==0) { //rs = x -> 0 or 1123;
-                        String sql2 = "update student set lectureNum"+i+"=? where stNum = ?";
-                        pstmt = conn.prepareStatement(sql2);
-                        pstmt.setInt(1, scid);
-                        pstmt.setInt(2, id);
-                        System.out.println(sql2);
-                        int res = pstmt.executeUpdate();
-                        System.out.println("2");
-                        break;
+                     if(rs == scid) {
+                    	 break;
+                     }
+                     else {
+                    	 if(rs==0) { //rs = x -> 0 or 1123;
+                    		 String sql2 = "update student set lectureNum"+i+"=? where stNum = ?";
+                    		 pstmt = conn.prepareStatement(sql2);
+                    		 pstmt.setInt(1, scid);
+                    		 pstmt.setInt(2, id);
+                    		 System.out.println(sql2);
+                    		 int res = pstmt.executeUpdate();
+                    		 System.out.println("2");
+                    		 break;
+                     	}
                      }
                      System.out.println("3");
                      
@@ -276,5 +281,150 @@ public class ScheduleDao {
           
           return result;
        }
+       
+       //관심등록 db 등록 확인
+       
+       public boolean interest_search(int stNum) {
+    	   boolean result = false;
+    	   
+    	   String sql="select * from interest where stNum = ?";
+    	   
+    	   try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, stNum);
+			res = pstmt.executeQuery();
+			
+			if(res.next()) {
+				result = true;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	   
+    	   return result;
+       }
+    	   
+    	 //관심등록 자동생성 
+           
+           public int interest_createDB(int stNum) {
+              int result = 0;
+              String sql = "insert into interest stNum value ?";
+               try {
+                   pstmt = conn.prepareStatement(sql);
+                    pstmt.setInt(1, stNum);
+                     result = pstmt.executeUpdate();
+                } catch (SQLException e) {
+                   e.printStackTrace();
+                } finally {
+                    try {
+                        if(res != null) res.close();
+                        if(pstmt != null) pstmt.close();
+                     }catch(SQLException e) {
+                        e.printStackTrace();
+                     }   
+                  }
+               return result;
+           }
+           
+           //관심등록 추가 
+           
+           public int interest_insertDB(int stNum, String title) {
+              int result = 0;
+              String sql = "insert into interest (stNum, title) values (?,?)";
+               try {
+                   pstmt = conn.prepareStatement(sql);
+                    pstmt.setInt(1, stNum);
+                    pstmt.setString(2, title);
+                     result = pstmt.executeUpdate();
+                } catch (SQLException e) {
+                   e.printStackTrace();
+                } finally {
+                    try {
+                        if(res != null) res.close();
+                        if(pstmt != null) pstmt.close();
+                     }catch(SQLException e) {
+                        e.printStackTrace();
+                     }   
+                  }
+               return result;
+           }
+           
+           
+           //관심등록 보기
+           
+           public int interest_updateDB(int stNum, String title) {
+              int result = 0;
+              String sql = "update interest set title = ? where stNum = ?";
+               try {
+                   pstmt = conn.prepareStatement(sql);
+                   pstmt.setString(1, title);
+                    pstmt.setInt(2, stNum);
+                    
+                     result = pstmt.executeUpdate();
+                } catch (SQLException e) {
+                   e.printStackTrace();
+                } finally {
+                    try {
+                        if(res != null) res.close();
+                        if(pstmt != null) pstmt.close();
+                     }catch(SQLException e) {
+                        e.printStackTrace();
+                     }   
+                  }
+               return result;
+           }
+           
+         //관심등록 수정
+   	    
+   	    public int interest_deleteDB(int stNum) {
+   	    	int result = 0;
+   	    	String sql = "DELETE FROM interest WHERE stNum=?";
+   	    	 try {
+   		         pstmt = conn.prepareStatement(sql);
+   		          pstmt.setInt(1, stNum);
+   		    
+   		           result = pstmt.executeUpdate();
+   		      } catch (SQLException e) {
+   		         e.printStackTrace();
+   		      } finally {
+   		          try {
+   		              if(res != null) res.close();
+   		              if(pstmt != null) pstmt.close();
+   		           }catch(SQLException e) {
+   		              e.printStackTrace();
+   		           }   
+   		        }
+   	    	 return result;
+   	    }
+   	    
+   	 public String interest_viewDB(int stNum) {
+    	 
+  	   String title = null;
+	    	String sql = "select title from interest where stNum=?";
+	    	 try {
+		         pstmt = conn.prepareStatement(sql);
+		          pstmt.setInt(1, stNum);
+		           res = pstmt.executeQuery();
+		           while(res.next()) {
+		        	   title = res.getString("title");
+		        	   System.out.println(title);
+		           }
+		          
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      } finally {
+		          try {
+		              if(res != null) res.close();
+		              if(pstmt != null) pstmt.close();
+		           }catch(SQLException e) {
+		              e.printStackTrace();
+		           }   
+		        }
+	    	 return title;
+     }
+           
+
       
    }

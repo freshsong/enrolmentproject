@@ -7,21 +7,31 @@
 <%@ page import="school.dto.*" %>
 <%@ page import="school.dao.*" %>
 <jsp:useBean id="dto" class="school.dto.scDto" scope="page" />
+ <jsp:useBean id="iDto" class="school.dto.IDto" scope="page" />
+ <jsp:setProperty name="iDto" property="*" />
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
 <% 
 
-   Connection conn = db.getConnection();
-   String selecteClass = request.getParameter("class");
-   ScheduleDao dao = new ScheduleDao(conn);
-   int scid = 2;
-   dto = dao.login(scid);
-   String week = dto.getWeek();
-   
-   System.out.println(dto.getTitle());
-   System.out.println(dto.getWeek());
-   db.closeConnection();
+	Connection conn = db.getConnection();
+	String selecteClass = request.getParameter("class");
+	ScheduleDao dao = new ScheduleDao(conn);
+	int scid = 2;
+	dto = dao.login(scid);
+	String week = dto.getWeek();
+	
+	 
+	
+	String stNum2 = (String) session.getAttribute("id");
+	int stNum = Integer.parseInt(stNum2);
+	 
+    String title = dao.interest_viewDB(stNum); // title
+	System.out.println(title);
+	
+	
+	
+	db.closeConnection();
 
-   
+	
 %>
  <div class="req_container">
         <h2>관심강좌</h2>
@@ -30,8 +40,25 @@
      <button type="button" class="btn btn-outline-dark req_box" onclick="submitCheckedValues()">시간표 보기</button>
       <p class="t_score" id="checkedCount">현재 선택 강의 : 0</p> 
     </div>
+    
+     <div class="interest_box">
+      
+      <div class="interest_text">
+       <p>기존 관심등록   :</p>
+      </div>  
+      <div class="e_interest">
+        <p><%if(title == null){ %>
+          관심등록된 강좌가 없습니다.
+        <%}else if(title != null){ %>
+        <%=title %>
+        <%} %>
+        </p>
+      </div>
+   </div>  
+   
         <hr><!--헤드라인-->
       <!--본문-->
+      
    <div class="body_text">
     <input type="checkbox" class="text_check" id="item1" value="웹디자인" >
    <div class="bbt">
@@ -63,7 +90,6 @@
     <p>  나교수 | 이젠컴퓨터학과 / 화(09:00 ~ 10:00)  금(12:00~13:00)</p>
    </div>
    </div> 
-
    
    
 
@@ -71,11 +97,16 @@
     <div class="popup">
       
       <button onclick="addToCart()" class="popbox"><p>관심강좌 담기</p></button>
+   
       <button onclick="clearCart()" class="popbox"><p>전체 삭제</p></button>
-      <div class="popbox" id="box-c1"><p>관심등록</p></div>
+      <form id="interestForm" action="interestOk.jsp" method="post">
+        <input type="hidden" name="checkedValues" id="checkedValues" value="">
+      <button onclick="interest()" class="popbox" id="box-c1"><p>관심등록/수정</p></button>
+      </form>
+       <button onclick="window.location.href = 'interestDel.jsp';" class="popbox"><p>관심강좌 삭제</p></button>
       <h4>My Cart</h4>
       <div class="popbody" id="cart">
-      
+
       
      
     </div> <!--/popbody-->
@@ -86,7 +117,3 @@
          
 
 <jsp:include page="inc/footer.jsp" flush="true" />
-
-
-
-

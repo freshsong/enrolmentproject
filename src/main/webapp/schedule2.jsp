@@ -10,7 +10,6 @@
 <jsp:useBean id="dto" class="school.dto.scDto" scope="page" />
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
 <% 
-
    Connection conn = db.getConnection();
    String selecteClass = request.getParameter("class");
    ScheduleDao dao = new ScheduleDao(conn);

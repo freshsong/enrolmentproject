@@ -1,20 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-   	String role = request.getParameter("role");
-	
-	String name = (String) session.getAttribute("name");
-	String rolee = (String) session.getAttribute("rolee");
-	
-	System.out.println(name+", "+rolee);
-	System.out.println(role);
+      String role = request.getParameter("role");
+   
+   String name = (String) session.getAttribute("name");
+   String rolee = (String) session.getAttribute("rolee");
+   
+   System.out.println(name+", "+rolee);
+   System.out.println(role);
 
 
 %>
 
 <div class="aside">
              <%
-             	if(rolee == null){
+                if(rolee == null){
                 if(role == null){
              %>
                   <div class="login_box">
@@ -65,10 +65,10 @@
                  <%
                     }
                 }
-             	else{
-            	 if(rolee.equals("st1")){
+                else{
+                if(rolee.equals("st1")){
                  %>
-                 <div class="login_box_st">
+               <div class="login_box_st2">
                   <p class="pb-4"><%=name %>환영합니다.</p>
                   <form name="logoutForm" action="LoginSevlet" method="get">
                   <button type="submit" id ="login_btn" class="btn btn-outline-secondary btn-block">로그아웃</button>
@@ -78,15 +78,15 @@
                     }
                     else if(rolee.equals("pr1")){
                  %>
-                    <div class="login_box_st">
-                  <p class="pb-4"><%=name %>환영합니다.</p>
-                  <form name="logoutForm" action="LoginSevlet" method="get">
-                  <button type="submit" id ="login_btn" class="btn btn-outline-secondary btn-block">로그아웃</button>
-                  </form>                                          
-               </div>
+                 <div class="login_box_st2">
+                     <p class="pb-4"><%=name %>환영합니다.</p>
+                     <form name="logoutForm" action="LoginSevlet" method="get">
+                     <button type="submit" id ="login_btn" class="btn btn-outline-secondary btn-block">로그아웃</button>
+                     </form>                                          
+                </div>
                  <%
                     }
-             	}
+                }
                  %>
 
                  <button type="button" class="btn-btn-outline-dark" id="cart_info">장바구니 초보를 위한 수강신청 안내<i class="ri-arrow-right-line"></i></button>
