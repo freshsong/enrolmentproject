@@ -125,8 +125,8 @@ $(document).ready(function() {
                 <div class="web">
                     <input type="checkbox" class="textcheck" id="mon1" value="웹디자인 월요일(09:00~10:00)" >
                     <div class="classson">
-	                    웹디자인 월(09:00~10:00) <br>
-	                    김교수 | 이젠컴퓨터학과 <br>
+	                    수강과목 | 웹디자인 월요일(09:00~10:00) <br>
+	                    김교수 | 학과 : 이젠컴퓨터학과 <br>
 	                    인원 / 정원 (총 <span id="weben">22</span>/30) | 학점 2 
 	                </div> <!--  /classson -->    
                 </div><!-- /web -->
@@ -144,7 +144,7 @@ $(document).ready(function() {
                 <div class="java">
                     <input type="checkbox" class="textcheck" id="mon2" value="자바프로그램 월(11:00~12:00)">
                     <div class="classson">
-	                    자바프로그래밍 월(11:00~12:00) <br>
+	                    수강과목 | 자바프로그램 월요일(11:00~12:00) <br>
 	                    박교수 | 이젠컴퓨터학과 <br>
 	                    인원 / 정원 (총 <span id="javaen">25</span>/30) | 학점 2
 	                </div> <!--  /classson --> 
@@ -163,7 +163,7 @@ $(document).ready(function() {
                 <div class="DB">
                     <input type="checkbox" class="textcheck" id="wed4" value="데이터베이스 수(14:00~15:00)">
                     <div class="classson">
-	                    데이터베이스 수(14:00~15:00) <br>
+	                    수강과목 | 데이터베이스 수요일(14:00~15:00) <br>
 	                    이교수 | 이젠컴퓨터학과 <br>
 	                    인원 / 정원 (총 <span id="DBen"> 30 </span>/30) | 학점 3 
                     </div> <!--  /classson -->
@@ -182,7 +182,7 @@ $(document).ready(function() {
                 <div class="final">
                     <input type="checkbox" class="textcheck" id="tue1" value="영상편집 화(09:00~10:00)">
                     <div class="classson">
-	                    영상편집 화(09:00~10:00)<br>
+	                    수강과목 | 영상편집 화요일(09:00~10:00)<br>
 	                    나교수 | 이젠컴퓨터학과 <br>
 	                    인원 / 정원 (총<span id="finalen">11</span>/30) | 학점 2 
                     </div> <!--  /classson -->
