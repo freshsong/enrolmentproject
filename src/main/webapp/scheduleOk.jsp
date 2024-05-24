@@ -6,8 +6,9 @@
 <%@ page import="school.dto.*" %>
 <%@ page import="school.dao.*" %>
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
-<jsp:useBean id="sDto" class="school.dto.SDto" scope="page" />
-<jsp:setProperty name="sDto" property="*" />
+ <jsp:useBean id="sDto" class="school.dto.SDto" scope="page" />
+   <jsp:setProperty name="sDto" property="*" />
+
    <% 
    Connection conn = db.getConnection();
    ScheduleDao dao = new ScheduleDao(conn);
@@ -25,17 +26,17 @@
    
   
    if(ty.equals("신청하기")){
-	   
+       
    int rs = dao.updateDB(scid, idd);
    int rss = daoo.insertDB(scid, idd);
    
    }
    else{
-	   int rs = dao.deleteScDB(scid, idd);
-	   int rss = daoo.deleteScDB(idd);
+       int rs = dao.deleteScDB(scid, idd);
+       int rss = daoo.deleteScDB(idd);
    }
-	db.closeConnection();
-	
+    db.closeConnection();
+    
      
    %>
    
@@ -44,23 +45,23 @@
 <head>
 
 <%
-	if(ty.equals("신청하기")){
+    if(ty.equals("신청하기")){
 %>
 
 <script>
  alert("수강신청이 완료되었습니다.");
  location.href="./scheduler.jsp";
 </script>
-<%		
-	}
-	else{
+<%      
+    }
+    else{
 %>
 <script>
-	alert("수강신청이 취소되었습니다.");
-	location.href="./scheduler.jsp";
+    alert("수강신청이 취소되었습니다.");
+    location.href="./scheduler.jsp";
 </script>
 <%
-	}
+    }
 %>
 
 <meta charset="UTF-8">

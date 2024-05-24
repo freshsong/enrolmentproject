@@ -10,15 +10,15 @@
 <%
    Connection conn = db.getConnection();
    AttendanceDao dao = new AttendanceDao(conn);
-	String check = request.getParameter("check");
-	String num = request.getParameter("num");
-	int stNum = Integer.parseInt(num);
-	
-	dao.check(check, stNum);
-	
-	System.out.println(check);
-	
-	
+    String check = request.getParameter("check");
+    String num = request.getParameter("num");
+    int stNum = Integer.parseInt(num);
+    
+    dao.check(check, stNum);
+    
+    System.out.println(check);
+    
+    
 %>
 <html>
 <head>
@@ -26,9 +26,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<script>
-	alert("체크 되었습니다.");
-	location.href="attendance.jsp";
-	</script>
+    <script>
+    alert("체크 되었습니다.");
+    location.href="attendance.jsp";
+    </script>
 </body>
 </html>

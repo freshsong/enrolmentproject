@@ -14,24 +14,18 @@
 <%
    Connection conn = db.getConnection();
    AttendanceDao dao = new AttendanceDao(conn);
-   int num = 1;
+   String pf = (String) session.getAttribute("name");
+   System.out.println(pf);
+   
+   int num = dao.scheduleId(pf);
+   
+   System.out.println(num);
    ArrayList<ADto> list = dao.view(num);
    
    int stnum = 0;
    String dep = null; 
    String name = null; 
    String phoneNum =null; 
-   
-   for(int i = 0; i<list.size(); i++){
-      ADto dto = list.get(i);
-      
-      stnum = dto.getStNum();
-      dep = dto.getDep();
-      name = dto.getStName();
-      phoneNum = dto.getStPhoneNum();
-      
-      System.out.println(dep+"|"+stnum+"|"+name+"|"+phoneNum);
-   }
    
    db.closeConnection();
    
@@ -137,6 +131,14 @@
                                </tr>
                             </thead>
                             <tbody id="tby">
+                                                       <%
+                              for(int i=0; i<list.size(); i++){
+                                ADto dto = list.get(i);
+                                dep = dto.getDep();
+                                stnum = dto.getStNum();
+                                name = dto.getStName();
+                              
+                            %>
                                <tr>
                                   <td><i class="ri-image-line" alt="사진"></i></td>
                                   <td><%=dep %></td>
@@ -145,52 +147,33 @@
                                   <td><%=name %></td>
                                   <td>
                                   
-                                   <input type="radio" name="check" value="attend">
+                                   <input type="radio" name="check<%=i %>" value="출석">
                                    <label for="출석">출석</label>
                                    
                                  </td>
                                   <td>
                                   
-                                   <input type="radio" name="check" value="abs">
+                                   <input type="radio" name="check<%=i %>" value="결석">
                                    <label for="결석">결석</label>
                                    
                                  </td>
                                   <td>
                                   
-                                   <input type="radio"  name="check" value="late">
+                                   <input type="radio"  name="check<%=i %>" value="지각">
                                    <label for="지각">지각</label>
                                    
                                  </td>
                                   <td>
                                   
-                                   <input type="radio" name="check" value="ets">
+                                   <input type="radio" name="check<%=i %>" value="기타">
                                    <label for="기타">기타</label>
                                    
                                  </td>
                                </tr>
-                               <tr>
-                                 <td><i class="ri-image-line" alt="사진"></i></td>
-                                 <td></td>
-                                 <td></td>
-                                 <td>20240402</td>
-                                 <td>김학생</td>
-                                 <td>
-                                  <input type="radio" name="check" value="attend">
-                                  <label for="출석">출석</label>
-                                </td>
-                                 <td>
-                                  <input type="radio" name="check" value="abs">
-                                  <label for="결석">결석</label>
-                                </td>
-                                 <td>
-                                  <input type="radio"  name="check" value="late">
-                                  <label for="지각">지각</label>
-                                </td>
-                                 <td>
-                                  <input type="radio" name="check" value="ets">
-                                  <label for="기타">기타</label>
-                                </td>
-                              </tr>
+                               <%
+                                }
+                               %>
+
                             </tbody>
                          </table>
                          <button type="submit" class="btn btn-outline-dark">

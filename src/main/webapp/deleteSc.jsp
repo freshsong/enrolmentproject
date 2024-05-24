@@ -10,8 +10,8 @@
    Connection conn = db.getConnection();
    ScheduleDao dao = new  ScheduleDao(conn);
    
-   	dao.deleteScDB(2, 12345678);
-  	int[]rs = dao.findUser("12345678");
+    dao.deleteScDB(2, 12345678);
+    int[]rs = dao.findUser("12345678");
    
    
    
@@ -19,7 +19,7 @@
    System.out.println(rs[1]);
    System.out.println(rs[2]);
    
-	db.closeConnection();
+    db.closeConnection();
 
      
    %> 
@@ -31,9 +31,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<script>
-		alert("관심등록(수강신청)이 삭제되었습니다.");
-		location.href="index.jsp";
-	</script>
+    <script>
+        alert("관심등록(수강신청)이 삭제되었습니다.");
+        location.href="index.jsp";
+    </script>
 </body>
 </html>

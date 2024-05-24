@@ -9,31 +9,38 @@
 <%@ page import="java.util.*" %>
 <%@ page import="school.dto.*" %>
 <%@ page import="school.dao.*" %>
+<%@ page import="java.text.*" %>
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
 
 <%
    Connection conn = db.getConnection();
    AttendanceDao dao = new AttendanceDao(conn);
-   int num = 1;
+   String pf = (String) session.getAttribute("name");
+   System.out.println(pf);
+   
+   int num = dao.scheduleId(pf);
+   
+   System.out.println(num);
    ArrayList<ADto> list = dao.view(num);
    
+   String dep = null;
    int stnum = 0;
+   String name = null;
+   int att = 0;
+   int abs = 0;
+   int late = 0;
+   int ets = 0;
    
-   String dep = null; 
-   String name = null; 
-   String phoneNum =null; 
+   Timestamp time = null;
    
    for(int i = 0; i<list.size(); i++){
       ADto dto = list.get(i);
       
-      stnum = dto.getStNum();
-      dep = dto.getDep();
-      name = dto.getStName();
-      phoneNum = dto.getStPhoneNum();
-      
-      System.out.println(dep+"|"+stnum+"|"+name+"|"+phoneNum);
+      time = dto.getTime();
+
    }
    
+   SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
    db.closeConnection();
    
 %>
@@ -87,7 +94,7 @@
                     
                                             <!-- 출석부 -->
                      <div class="d-day">
-                            2024년 4월 8일 1교시 수업입니다. 
+                            <%=sdf.format(time) %> 
                      </div>
                      <div class="atttablebox">            
                          <table>
@@ -118,6 +125,19 @@
                                </tr>
                             </thead>
                             <tbody id="tby">
+                            <%
+                                for(int i = 0; i<list.size(); i++){
+                                    ADto dto = list.get(i);
+                                    
+                                    dep = dto.getDep();
+                                    stnum = dto.getStNum();
+                                    name = dto.getStName();
+                                    att = dto.getAtt();
+                                    abs = dto.getAbs();
+                                    late = dto.getLate();
+                                    ets = dto.getEts();
+                                    
+                            %>
                                <tr>
                                   <td>1</td>
                                   <td><%=dep %></td>
@@ -125,11 +145,14 @@
                                   <td><%=stnum %></td>
                                   <td><%=name %></td>
                                   <td>출석</td>
-                                  <td>2</td>
-                                  <td>0</td>
-                                  <td>1</td>
-                                  <td>0</td>
+                                  <td><%=att %></td>
+                                  <td><%=abs %></td>
+                                  <td><%=late %></td>
+                                  <td><%=ets %></td>
                               </tr>
+                              <%
+                                }
+                              %>
                             </tbody>
                          </table>
                          <button type="submit" class="btn btn-outline-dark">

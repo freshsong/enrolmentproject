@@ -2,36 +2,45 @@
  * 
  */
  /***nav**/
- $(function(){
+  
+$(function(){
     $('.mainmenu-1,.submenu-1').mouseover(function(){
        $('.submenu-1').stop().show();
+       $("#header").addClass("on");
     });
     $('.mainmenu-1,.submenu-1').mouseout(function(){
         $('.submenu-1').stop().hide();
+        $("#header").removeClass("on");
      });
 
 
      $('.mainmenu-2,.submenu-2').mouseover(function(){
         $('.submenu-2').stop().show();
+        $("#header").addClass("on");
      });
      $('.mainmenu-2,.submenu-2').mouseout(function(){
          $('.submenu-2').stop().hide();
+         $("#header").removeClass("on");
       });
 
 
       $('.mainmenu-3,.submenu-3').mouseover(function(){
         $('.submenu-3').stop().show();
+        $("#header").addClass("on");
      });
      $('.mainmenu-3,.submenu-3').mouseout(function(){
          $('.submenu-3').stop().hide();
+         $("#header").removeClass("on");
       });
 
       
       $('.mainmenu-4,.submenu-4').mouseover(function(){
         $('.submenu-4').stop().show();
+        $("#header").addClass("on");
      });
      $('.mainmenu-4,.submenu-4').mouseout(function(){
          $('.submenu-4').stop().hide();
+         $("#header").removeClass("on");
       });
  });
  
@@ -226,7 +235,7 @@ $(document).ready(function(){  // 제이쿼리문 시작
   $('#cart').on('click','button',function(){
   $(this).parent().remove();
   
-  	
+     
   });
   
   /**check box 선택삭제 */
@@ -559,6 +568,3 @@ $(document).ready(function(){  // 제이쿼리문 시작
        $("td:contains('데이터베이스')").css("background-color", "#edf7e9");
        $("td:contains('영상편집')").css("background-color", "#f4eefd");
     });
-
-
-

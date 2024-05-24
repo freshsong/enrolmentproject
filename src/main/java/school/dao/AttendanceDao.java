@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import school.dto.ADto;
@@ -82,7 +83,7 @@ public class AttendanceDao {
 	    /*** 출석부 보기 ***/
 	    public ArrayList<ADto> view(int num){
 	    	ArrayList<ADto> stView = new ArrayList<>();
-	    	String sql = "select * from attendance where scid = ?";
+	    	String sql = "select * from attendance where scid = ? order by stNum";
 	    	
 	    	try {
 				pstmt = conn.prepareStatement(sql);
@@ -96,11 +97,21 @@ public class AttendanceDao {
 					String dep = res.getString("dep");
 					String name = res.getString("stName");
 					String phoneNum = res.getString("stPhoneNum");
+					int att = res.getInt("att");
+					int abs = res.getInt("abs");
+					int late = res.getInt("late");
+					int ets = res.getInt("ets");
+					Timestamp time = res.getTimestamp("time");
 					
 					dto.setDep(dep);
 					dto.setStNum(stNum);
 					dto.setStName(name);
 					dto.setStPhoneNum(phoneNum);
+					dto.setAtt(att);
+					dto.setAbs(abs);
+					dto.setLate(late);
+					dto.setEts(ets);
+					dto.setTime(time); 
 					
 					stView.add(dto);
 				}
@@ -153,6 +164,25 @@ public class AttendanceDao {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+	    }
+	    
+	    //교수번호? 과목번호 출력
+	    public int scheduleId(String name) {
+	    	int rss = 0;
+	    	String sql = "select scid from schedule where pfname = ?";
+	    	
+	    	try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, name);
+				res = pstmt.executeQuery();
+				res.next();
+				System.out.println(res.getInt("scid"));
+				rss = res.getInt("scid");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    	return rss;
 	    }
 
 }

@@ -14,9 +14,9 @@
    Connection conn = db.getConnection();
    ScheduleDao dao = new ScheduleDao(conn);
 
-   	int scid = 0;
-   	String stName = (String) session.getAttribute("name");
-   	System.out.println(stName);
+      int scid = 0;
+      String stName = (String) session.getAttribute("name");
+      System.out.println(stName);
    
    ArrayList<scDto> lists = dao.selectDB(scid, stName);
    
@@ -24,15 +24,20 @@
    String week = "";
    String time = "";
    
-  
-   
-   
    db.closeConnection();
 %>
 
+ <table class="table table-bordered scheduler">
+         <colgroup>
+            <col width="*">
+            <col width="16.3%">
+            <col width="16.3%">
+            <col width="16.3%">
+            <col width="16.3%">
+            <col width="16.3%">
 
-         <table class="table table-bordered">
-            <thead class="text-center">
+         </colgroup>
+            <thead class="text-center ">
                 <tr>
                     <th>시간</th>
                     <th>월요일</th>
@@ -49,12 +54,9 @@
                 <% 
                 for(int i=0; i<lists.size(); i++) {
                     scDto dto = lists.get(i);
-                    
                     title = dto.getTitle();
                     week = dto.getWeek();
                     time = dto.getTime();
-                    
-                
                 if ((week.equals("월")) && (time.equals("mon1"))) { 
                 %>
                 <%= title %>
@@ -64,11 +66,9 @@
                     <% 
                     for(int i=0; i<lists.size(); i++) {
                         scDto dto = lists.get(i);
-                        
                         title = dto.getTitle();
                         week = dto.getWeek();
                         time = dto.getTime();
-                        
                 if ((week.equals("화")) && (time.equals("tue1"))) { 
                 %>
                 <%= title %>
@@ -586,7 +586,7 @@
                 <%= title %>
                 <% } 
                 else {
-                	
+                   
                 } }
                     %>
                     </td>

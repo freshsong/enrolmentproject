@@ -10,6 +10,7 @@
 <jsp:useBean id="dto" class="school.dto.scDto" scope="page" />
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
 <% 
+
    Connection conn = db.getConnection();
    String selecteClass = request.getParameter("class");
    ScheduleDao dao = new ScheduleDao(conn);
@@ -50,7 +51,7 @@
   }
 </script>
 
-<p class="intertablep">선택한 과목 : <%=selectedClasses %></p>
+<button class="btn btn-outline-dark sc_2button" onclick="window.location.href='interest.jsp';">뒤로가기</button>
 
 
          <table class="table table-bordered intertable">

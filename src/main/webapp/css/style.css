@@ -20,21 +20,38 @@ ul li{
 }
 /***********header**************/
 .hedaer_container{
+    width:100%;
     height:175px;
 }
 .header{
+    position:relative;
     height:120px;
     background-color:#ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     border-bottom:1px solid #ddd;
+}
+#header::after {
+    content: '';
+    width: 100%;
+    height: 0px;
+    background:#eef5ff;
+    position: absolute;
+    left: 0;
+    top: 120px;
+    transition: all 400ms;
+}
+#header.on::after {
+    height: 55px;
+}
+.row{   
+    height:100%;
+    width:75%;
+    display: flex;
+    margin-left:auto;
+    margin-right:auto;
 }
 .brand{
     width:20%;
     height:100%;
-    position:relative;
-    left:200px;
 }
 .brand img{
     width:200px;
@@ -51,105 +68,121 @@ nav{
 nav > ul{
     display: flex;
     justify-content: right;
-    margin-right:160px;
-    margin-top:80px;
+    margin-top:85px;
 }
 nav > ul > li{
     position:relative;
-    margin-right:100px;
     font-size:19px;
-    padding-bottom:50px;
 }
+
 nav > ul > li > a{
-    color:#7a7a7a;
     display: inline-block;
-    align-items: center;
+    padding-left:50px;
+    padding-right:50px;
+    color:#7a7a7a;
+
 }
 nav > ul > li > a:hover{
     color:#716dc8;
     text-decoration: none;
 }
-.submenu-1,.submenu-2, .submenu-3,
-.submenu-4{
-    position:relative;
-    width:100%;
+.submenu-1{
+    width:500px;
+    position:absolute;
+    left:-10px;
+    padding-top:15px;
+    text-align: center;
     height:55px;
-    background:#eef5ff;
+    z-index: 10;
     display: none;
-
 }
-
-.submenu-1 > ul{
+.submenu-2{
+    width:500px;
     position:absolute;
-    display: flex;
+    left:-15px;
     padding-top:15px;
-    right:743px; /*학생 : 540, 교수 : 637 */
+    text-align: center;
+    height:55px;
+    display: none;
+    z-index: 10;
 }
-.submenu-1 > ul >li{
+.submenu-3{
+    width:500px;
+    position:absolute;
+    left:3px;
+    padding-top:15px;
+    text-align: center;
+    height:55px;
+    display: none;
+    z-index: 10;
+}
+.submenu-4{
+    width:500px;
+    position:absolute;
+    left:5px;
+    padding-top:15px;
+    text-align: center;
+    height:55px;
+    display: none;
+    z-index: 10;
+}
+
+.submenu-1 >li{
     margin-left:50px;
+    float: left;
+    z-index: 99;
 }
-.submenu-1 > ul >li >a{
+.submenu-1 >li >a{
     color:#39495f;
     font-size:17px;
     font-weight:400;
+    z-index: 10;
 }
-.submenu-1 > ul >li >a:hover{
+.submenu-1 >li >a:hover{
     text-decoration: none;
     color:#716dc8;
 }
-.submenu-2 > ul{
-    position:absolute;
-    display: flex;
-    padding-top:15px;
-    right:465px;
-}
-.submenu-2 > ul >li{
+
+.submenu-2 >li{
     margin-left:70px;
+    float: left;
 }
-.submenu-2 > ul >li >a{
+.submenu-2 >li >a{
     color:#39495f;
     font-size:17px;
     font-weight:400;
 }
-.submenu-2 > ul >li >a:hover{
+.submenu-2 >li >a:hover{
     text-decoration: none;
     color:#716dc8;
 }
 
-.submenu-3 > ul{
-    position:absolute;
-    display: flex;
-    padding-top:15px;
-    right:194px;
-}
-.submenu-3 > ul >li{
+
+.submenu-3 >li{
     margin-left:50px;
+    float: left;
 }
-.submenu-3 > ul >li >a{
+.submenu-3 >li >a{
     color:#39495f;
     font-size:17px;
     font-weight:400;
 }
-.submenu-3 > ul >li >a:hover{
+.submenu-3 >li >a:hover{
     text-decoration: none;
     color:#716dc8;
 }
 
-.submenu-4 > ul{
-    position:absolute;
-    display: flex;
-    padding-top:15px;
-    right:152px;
-}
-.submenu-4 > ul >li{
+
+.submenu-4 >li{
     margin-left:50px;
+    float: left;
 }
-.submenu-4 > ul >li >a{
+.submenu-4 >li >a{
     color:#39495f;
     font-size:17px;
     font-weight:400;
 }
-.submenu-4 > ul >li >a:hover{
+.submenu-4 >li >a:hover{
     text-decoration: none;
     color:#716dc8;
 }
@@ -536,6 +569,23 @@ td:not(:last-child){
 
 
 /* class table */
+.sc_2button{
+    margin-left:10px;
+    margin-top:10px;
+    float:left;
+    width:110px;
+    height: 40px;
+    background:#fff;
+    border-radius:10px;
+    border:1px solid #c7d1de;
+    padding:1px;
+    font-size:16px; 
+}
+.sc_2button:hover{
+   border:1px solid #277cf3;
+    background:#277cf3;
+    color:#fff;
+}
 .scheduler{
     width:90%;
     margin-left:auto;
@@ -574,6 +624,7 @@ td:not(:last-child){
 
 /* 수강신청 */
 
+
 .notice{
     border-radius: 15px;
     background-color: #3a1fb1;
@@ -603,12 +654,15 @@ td:not(:last-child){
     border-radius:10px;
     border:1px solid #000;
     padding:1px;
-    font-size:16px; 
+    font-size:14px; 
 }
 .req_box1:hover{
    border:1px solid #c0c0c0;
    background:#c0c0c0;
    color:#fff;
+}
+.req_box1 p{
+	font-size: 14px;
 }
 .popbody1{
     list-style-type: none;
@@ -650,6 +704,7 @@ td:not(:last-child){
    background: #fff;
    border-radius: 10px;
    border:1px solid #c7d1de;
+   font-size: 14px;
 }
 .pass:hover{
    background: #277cf3;
@@ -659,7 +714,9 @@ td:not(:last-child){
    background: #277cf3;
    color: #fff;
 }
-
+.classson{
+	font-size: 20px;
+}
 .final > .textcheck{
    float: left;
    margin-top: 30px;
@@ -687,7 +744,6 @@ td:not(:last-child){
    background: #277cf3;
     color: #fff;
 }
-
 
 
 
@@ -747,7 +803,7 @@ td:not(:last-child){
 }
 .e_interest{
     width:65%;
-    text-align:center;
+    text-aling:center;
 }
 
 
@@ -869,8 +925,8 @@ td:not(:last-child){
     font-weight:400;
 }
 #box-c1:hover{
-    background-color: #fff;
-    color:#000;
+    background-color:#277cf3;
+    color:#fff;
 }
 
 .popbox>p{
@@ -1278,5 +1334,4 @@ td:not(:last-child){
    font-size:20px;
    color:black;
 }
-
 

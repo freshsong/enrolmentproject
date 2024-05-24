@@ -12,26 +12,26 @@
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
 <% 
 
-	Connection conn = db.getConnection();
-	String selecteClass = request.getParameter("class");
-	ScheduleDao dao = new ScheduleDao(conn);
-	int scid = 2;
-	dto = dao.login(scid);
-	String week = dto.getWeek();
-	
-	 
-	
-	String stNum2 = (String) session.getAttribute("id");
-	int stNum = Integer.parseInt(stNum2);
-	 
+    Connection conn = db.getConnection();
+    String selecteClass = request.getParameter("class");
+    ScheduleDao dao = new ScheduleDao(conn);
+    int scid = 2;
+    dto = dao.login(scid);
+    String week = dto.getWeek();
+    
+     
+    
+    String stNum2 = (String) session.getAttribute("id");
+    int stNum = Integer.parseInt(stNum2);
+     
     String title = dao.interest_viewDB(stNum); // title
-	System.out.println(title);
-	
-	
-	
-	db.closeConnection();
+    System.out.println(title);
+    
+    
+    
+    db.closeConnection();
 
-	
+    
 %>
  <div class="req_container">
         <h2>관심강좌</h2>

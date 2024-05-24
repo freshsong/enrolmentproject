@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%
-		String username = (String) session.getAttribute("user");
-		
-	%>
-	<h1>반갑습니다. <%=username %>님, 환영합니다.</h1>
+    <%
+        String username = (String) session.getAttribute("user");
+        
+    %>
+    <h1>반갑습니다. <%=username %>님, 환영합니다.</h1>
 </body>
 </html>

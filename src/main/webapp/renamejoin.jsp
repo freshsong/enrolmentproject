@@ -9,21 +9,21 @@
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
   
 <%
-	Connection conn = db.getConnection();
-	String name = (String) session.getAttribute("name");
-	StudentsDao dao = new StudentsDao(conn);
-	SDto sdto = new SDto();
+    Connection conn = db.getConnection();
+    String name = (String) session.getAttribute("name");
+    StudentsDao dao = new StudentsDao(conn);
+    SDto sdto = new SDto();
 
-	sdto = dao.serchDB(name);
-	
-	String namee = sdto.getName();
-	int stNum = sdto.getStNum();
-	int birth = sdto.getBirth();
-	
-	db.closeConnection();
+    sdto = dao.serchDB(name);
+    
+    String namee = sdto.getName();
+    int stNum = sdto.getStNum();
+    int birth = sdto.getBirth();
+    
+    db.closeConnection();
 
-	
-	
+    
+    
 %>
 <html>
 <head>

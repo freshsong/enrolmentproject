@@ -22,22 +22,22 @@ cartItems = cartItems.concat(checkedItems);
 let cartList = document.getElementById('cart1');
 cartList.innerHTML = ''; // 기존 내용을 초기화
 cartItems.forEach(function(item) {
-	let li = document.createElement('li');
-	li.textContent = item;
-	cartList.appendChild(li);
-	let xbutton = document.createElement("button");
-	xbutton.textContent = "x";
-	li.appendChild(xbutton);
-	console.log(cartItems);
-	document.getElementById("inpp").setAttribute("value", cartItems);
+    let li = document.createElement('li');
+    li.textContent = item;
+    cartList.appendChild(li);
+    let xbutton = document.createElement("button");
+    xbutton.textContent = "x";
+    li.appendChild(xbutton);
+    console.log(cartItems);
+    document.getElementById("inpp").setAttribute("value", cartItems);
  });
 }
 
 /* 수강신청 전체 비우기 */
 function scheduleClearCart() {
-	let cartList = document.getElementById('cart1');
-	cartList.innerHTML = ''; 
-	cartItems=[];
+    let cartList = document.getElementById('cart1');
+    cartList.innerHTML = ''; 
+    cartItems=[];
 }
 
 $(document).ready(function(){  
@@ -47,8 +47,8 @@ $(document).ready(function(){
 });
 /* check box 선택삭제 */
 $('#deleteAll1').on('click', function() {
-	$(".textcheck").prop("checked", false);
-	$('#checkedCount1').text('현재 선택 강의 : 0');
+    $(".textcheck").prop("checked", false);
+    $('#checkedCount1').text('현재 선택 강의 : 0');
 });
 
 /* check box 선택개수 */
@@ -60,7 +60,7 @@ $('#checkedCount1').text('현재 선택 강의 : ' + checkedCount);
 /* 수강신청 클릭시 색상변경 > 관심강좌 색상과 동일 */
  $(function(){
     $("td:contains('웹디자인')").css("background-color", "#e9fcff");
-    $("td:contains('자바프로그래밍')").css("background-color", "#fdf7e5");
+    $("td:contains('자바프로그램')").css("background-color", "#fdf7e5");
     $("td:contains('데이터베이스')").css("background-color", "#edf7e9");
     $("td:contains('영상편집')").css("background-color", "#f4eefd");
  });
@@ -82,29 +82,17 @@ $(document).ready(function() {
      $("#DBen").text(currentValue + 1);
  });
 });
-
-
 //수강신청 강의 미리보기
-/* 관심등록 전송 */
 function getCheckedValues(){
-  let checkboxes = document.querySelectorAll('.text_check');
-  let checkedValues = [];
-  checkboxes.forEach(function(checkbox) {
-     if (checkbox.checked) {
-      checkedValues.push(checkbox.value);
-        
-    }; //if문
-  });  //forEach문
-  
-  return checkedValues;
-}  //gCV함수
-
-function interest() {
-  let checkedValues = getCheckedValues();
-  document.getElementById('checkedValues').value = checkedValues.join(',');
-  document.getElementById('interestForm').submit();
-  document.getElementById('checkedValues').setAttribute('value', checkedValues);
-}
+	  let checkboxes = document.querySelectorAll('input[type="hidden"].req_box1');
+	  let checkedValues = [];
+	  checkboxes.forEach(function(checkbox) {
+	     if (checkbox.checked) {
+	      checkedValues.push(checkbox.value);
+	    }; //if문
+	  });  //forEach문
+	  return checkedValues;
+	}  //gCV함수
 
 </script>
 <jsp:include page="inc/aside.jsp" flush="true" />
@@ -121,20 +109,14 @@ function interest() {
         <h3>수강신청</h3>
         <!-- 내가담은 수강신청 전체삭제 / 부분삭제 -->
          <div class="req_header">
-       <button onclick="scheduleAddCart()" class="req_box1" ><p style="margin-top: 10px;">선택강의 담기</p></button>
-       <form action="schedulerOk.jsp" method="post">
-       <button onclick="schesubmitCheckedValues()" class="req_box1" ><p style="margin-top: 10px;">수강신청 미리보기</p></button>
-       </form>
+       <button onclick="scheduleAddCart()" class="req_box1"><p style="margin-top: 10px;">미리보기 담기</p></button>
+     
        <form action="resche" method ="post"> 
-        <input type="submit" class="req_box1" value="수강신청미리보기"/>
-        <input type="hidden" name="val" id="inpp" value="" />
+        <input type="submit" class="req_box1" value="담은강의 미리보기"/>
+        <input type="hidden" name="val" id="inpp" value="" class="rescheck" />
        </form>
-       <form action="scheduleOk.jsp" method ="post"> 
-        <input type="submit" class="req_box1" value="선택강의 신청"/>
-        <input type="hidden" name="val" id="inpp" value="" />
-       </form>
-       <button type="button" class="req_box1" id="deleteAll1">선택 취소</button>
-       <button onclick="scheduleClearCart()" class="req_box1"><p style="margin-top: 10px;">전체 삭제</p></button>
+       <button type="button" class="req_box1" id="deleteAll1">선택취소</button>
+       <button onclick="scheduleClearCart()" class="req_box1"><p style="margin-top: 10px;">전체취소</p></button>
       <p class="t_score" id="checkedCount1">현재 선택 강의 : 0</p> 
     </div>
          <div class="popup1">
@@ -147,12 +129,12 @@ function interest() {
         <form action="scheduleOk.jsp" method="post">
             <div class="class">
                 <div class="web">
-                    <input type="checkbox" class="textcheck" id="mon1" value="웹디자인,월요일(09:00~10:00)" >
+                    <input type="checkbox" class="textcheck" id="mon1" value="웹디자인 천호관203호" >
                     <div class="classson">
-	                    수강과목 | 웹디자인 월요일(09:00~10:00) <br>
-	                    김교수 | 학과 : 이젠컴퓨터학과 <br>
-	                    인원 / 정원 (총 <span id="weben">22</span>/30) | 학점 2 
-	                </div> <!--  /classson -->    
+                        수강과목 | 웹디자인 월요일 (09:00~10:00) <br>
+                        김교수 | 학과 : 이젠컴퓨터학과 <br>
+                        인원 / 정원 (총 <span id="weben">22</span>/30) | 학점 2 
+                    </div> <!--  /classson -->    
                 </div><!-- /web -->
                 <div class="submitbox" class="">
                     <input type="submit" value="신청하기" name="ty"  class="pass" id="mon1"/>
@@ -166,12 +148,12 @@ function interest() {
         <form action="scheduleOk.jsp" method="post">    
             <div class="class">
                 <div class="java">
-                    <input type="checkbox" class="textcheck" id="mon2" value="자바프로그램,월요일(11:00~12:00)">
+                    <input type="checkbox" class="textcheck" id="mon2" value="자바프로그램 창의관303호">
                     <div class="classson">
-	                    수강과목 | 자바프로그램 월요일(11:00~12:00) <br>
-	                    박교수 | 이젠컴퓨터학과 <br>
-	                    인원 / 정원 (총 <span id="javaen">25</span>/30) | 학점 2
-	                </div> <!--  /classson --> 
+                        수강과목 | 자바프로그램 월요일 (11:00~12:00) <br>
+                        박교수 | 이젠컴퓨터학과 <br>
+                        인원 / 정원 (총 <span id="javaen">25</span>/30) | 학점 2
+                    </div> <!--  /classson --> 
                 </div> <!--/java-->
                 <div class="submitbox" class="2">
                     <input type="submit" value="신청하기" name="ty" class="pass" id="mon2"/>              
@@ -185,11 +167,11 @@ function interest() {
         <form action="scheduleOk.jsp" method="post">         
             <div class="class">
                 <div class="DB">
-                    <input type="checkbox" class="textcheck" id="wed4" value="데이터베이스,수요일(14:00~15:00)">
+                    <input type="checkbox" class="textcheck" id="wed4" value="데이터베이스 선호관101호">
                     <div class="classson">
-	                    수강과목 | 데이터베이스 수요일(14:00~15:00) <br>
-	                    이교수 | 이젠컴퓨터학과 <br>
-	                    인원 / 정원 (총 <span id="DBen"> 30 </span>/30) | 학점 3 
+                        수강과목 | 데이터베이스 수요일 (14:00~15:00) <br>
+                        이교수 | 이젠컴퓨터학과 <br>
+                        인원 / 정원 (총 <span id="DBen"> 30 </span>/30) | 학점 3 
                     </div> <!--  /classson -->
                 </div> <!--/checkbox-->
                 <div class="submitbox">
@@ -204,11 +186,11 @@ function interest() {
         <form action="scheduleOk.jsp" method="post">           
             <div class="class">
                 <div class="final">
-                    <input type="checkbox" class="textcheck" id="tue1" value="영상편집,화요일(09:00~10:00)">
+                    <input type="checkbox" class="textcheck" id="tue1" value="영상편집 창의관401호">
                     <div class="classson">
-	                    수강과목 | 영상편집 화요일(09:00~10:00)<br>
-	                    나교수 | 이젠컴퓨터학과 <br>
-	                    인원 / 정원 (총<span id="finalen">21</span>/30) | 학점 2 
+                        수강과목 | 영상편집 화요일 (09:00~10:00)<br>
+                        나교수 | 이젠컴퓨터학과 <br>
+                        인원 / 정원 (총<span id="finalen">21</span>/30) | 학점 2 
                     </div> <!--  /classson -->
                 </div> <!--/checkbox-->
                 <div class="submitbox" class="4">
@@ -223,7 +205,7 @@ function interest() {
         <form action="scheduleOk.jsp" method="post">           
             <div class="class">
                 <div class="final">
-                    <input type="checkbox" class="textcheck" id="fri4" value="영상편집,금요일(12:00~13:00)">
+                    <input type="checkbox" class="textcheck" id="fri4" value="영상편집 창의관202호">
                     <div class="classson">
                         수강과목 | 영상편집 금요일(12:00~13:00)<br>
                         나교수 | 이젠컴퓨터학과 <br>

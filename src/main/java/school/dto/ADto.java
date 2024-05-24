@@ -1,5 +1,6 @@
 package school.dto;
 
+import java.sql.Timestamp;
 
 //출석부 DB
 public class ADto {
@@ -10,6 +11,10 @@ public class ADto {
 	private String stAddr1;
 	private String stAddr2;
 	private int att;
+	private int abs;
+	private int late;
+	private int ets;
+	private Timestamp time;
 	
 	public int getStNum() {
 		return stNum;
@@ -53,5 +58,31 @@ public class ADto {
 	public void setAtt(int att) {
 		this.att = att;
 	}
+	public int getAbs() {
+		return abs;
+	}
+	public void setAbs(int abs) {
+		this.abs = abs;
+	}
+	public int getLate() {
+		return late;
+	}
+	public void setLate(int late) {
+		this.late = late;
+	}
+	public int getEts() {
+		return ets;
+	}
+	public void setEts(int ets) {
+		this.ets = ets;
+	}
+	public Timestamp getTime() {
+		return time;
+	}
+	public void setTime(Timestamp time) {
+		this.time = time;
+	}
+	
+	
 	
 }
