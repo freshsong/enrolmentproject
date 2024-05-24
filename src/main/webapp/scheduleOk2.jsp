@@ -6,14 +6,12 @@
 <%@ page import="school.dto.*" %>
 <%@ page import="school.dao.*" %>
 <jsp:useBean id="db" class="school.dao.DBConnect" scope="page"/>
- <jsp:useBean id="sDto" class="school.dto.SDto" scope="page" />
-   <jsp:setProperty name="sDto" property="*" />
+<jsp:useBean id="sDto" class="school.dto.SDto" scope="page" />
+<jsp:setProperty name="sDto" property="*" />
 
-   <% 
-	
-   
-     
-   %>
+<%  
+
+%>
    
 <!DOCTYPE html>
 <html>

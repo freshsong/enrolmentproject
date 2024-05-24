@@ -51,7 +51,7 @@
   }
 </script>
 
-<p class="intertablep">선택한 과목 : <%=selecteClass %></p>
+<p class="intertablep">선택한 과목 : <%=selectedClasses %></p>
 
 
          <table class="table table-bordered intertable">

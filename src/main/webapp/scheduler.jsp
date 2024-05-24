@@ -184,13 +184,32 @@ $(document).ready(function() {
                     <div class="classson">
 	                    수강과목 | 영상편집 화요일(09:00~10:00)<br>
 	                    나교수 | 이젠컴퓨터학과 <br>
-	                    인원 / 정원 (총<span id="finalen">11</span>/30) | 학점 2 
+	                    인원 / 정원 (총<span id="finalen">21</span>/30) | 학점 2 
                     </div> <!--  /classson -->
                 </div> <!--/checkbox-->
                 <div class="submitbox" class="4">
                     <input type="submit" value="신청하기" name="ty" class="pass" id="tue1"/>
                     <input type="hidden" value="4" name="class"/>
                     <input type="submit" value="취소하기" name="ty" class="cancel" id="tue11"/>
+                    <input type="hidden" value="4" name="class"/>
+                </div> <!-- /submitbox-->
+            </div><!--/class-->
+        </form> 
+        
+        <form action="scheduleOk.jsp" method="post">           
+            <div class="class">
+                <div class="final">
+                    <input type="checkbox" class="textcheck" id="fri4" value="영상편집 금(12:00~13:00)">
+                    <div class="classson">
+                        수강과목 | 영상편집 금요일(12:00~13:00)<br>
+                        나교수 | 이젠컴퓨터학과 <br>
+                        인원 / 정원 (총<span id="finalen">11</span>/30) | 학점 2 
+                    </div> <!--  /classson -->
+                </div> <!--/checkbox-->
+                <div class="submitbox" class="4">
+                    <input type="submit" value="신청하기" name="ty" class="pass" id="fri4"/>
+                    <input type="hidden" value="4" name="class"/>
+                    <input type="submit" value="취소하기" name="ty" class="cancel" id="fri44"/>
                     <input type="hidden" value="4" name="class"/>
                 </div> <!-- /submitbox-->
             </div><!--/class-->
