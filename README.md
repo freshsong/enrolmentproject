@@ -10,3 +10,9 @@
   2. Front : VSCODE
   3. Back : JAVA 11 (STS 3버전, JSP - Servlet 구현)
   4. 설계도 : Figma
+<img width="1232" alt="스크린샷 2024-06-10 오전 10 32 34" src="https://github.com/freshsong/enrolmentproject/assets/154946396/54459bcb-424c-4c8c-9eab-d13488f36c0c">
+<img width="1397" alt="스크린샷 2024-06-10 오전 10 32 09" src="https://github.com/freshsong/enrolmentproject/assets/154946396/5c31920e-6cb0-4e6c-933a-dbe9c1654d24">
+<img width="459" alt="스크린샷 2024-06-10 오전 10 33 03" src="https://github.com/freshsong/enrolmentproject/assets/154946396/02ad30ca-b334-456d-9b4d-1b69c62b7990">
+<img width="369" alt="스크린샷 2024-06-10 오전 10 33 24" src="https://github.com/freshsong/enrolmentproject/assets/154946396/c56c732c-d2b1-4af5-a869-57e608380b10">
+<img width="1158" alt="스크린샷 2024-06-10 오전 10 33 44" src="https://github.com/freshsong/enrolmentproject/assets/154946396/44d91c9b-a671-485c-ae36-22d47fecee55">
+<img width="628" alt="스크린샷 2024-06-10 오전 10 33 53" src="https://github.com/freshsong/enrolmentproject/assets/154946396/70b9935b-939c-491e-a820-11be717f46f3">
