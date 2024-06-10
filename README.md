@@ -16,3 +16,7 @@
 <img width="369" alt="스크린샷 2024-06-10 오전 10 33 24" src="https://github.com/freshsong/enrolmentproject/assets/154946396/c56c732c-d2b1-4af5-a869-57e608380b10">
 <img width="1158" alt="스크린샷 2024-06-10 오전 10 33 44" src="https://github.com/freshsong/enrolmentproject/assets/154946396/44d91c9b-a671-485c-ae36-22d47fecee55">
 <img width="628" alt="스크린샷 2024-06-10 오전 10 33 53" src="https://github.com/freshsong/enrolmentproject/assets/154946396/70b9935b-939c-491e-a820-11be717f46f3">
+<img width="764" alt="스크린샷 2024-06-10 오전 10 40 08" src="https://github.com/freshsong/enrolmentproject/assets/154946396/7bb83d3d-63f8-4de7-b949-d9ab48b4f44d">
+<img width="764" alt="스크린샷 2024-06-10 오전 10 40 08" src="https://github.com/freshsong/enrolmentproject/assets/154946396/118a336e-31aa-4c4d-bda9-e35e7d003123">
+<img width="769" alt="스크린샷 2024-06-10 오전 10 40 14" src="https://github.com/freshsong/enrolmentproject/assets/154946396/b3639014-c114-47e8-8187-9a7ad9f12bad">
+<img width="914" alt="스크린샷 2024-06-10 오전 10 40 21" src="https://github.com/freshsong/enrolmentproject/assets/154946396/4f0eac53-40de-4a33-8e02-dfbb97d20fff">
